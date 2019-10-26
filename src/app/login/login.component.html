@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+
+<body>
+
+    <form #formLogin="ngForm" (ngSubmit)="login(formLogin)">
+
+        <div class="login-box">
+            <h1>UP!MUSIC</h1>
+            <h2>Bem vindo</h2>
+            <div class="username">
+                <div class="textbox">
+                    <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Digite seu usuário" name='nickname' type="text" [(ngModel)]="nickname" />
+                </div>
+            </div>
+                    
+
+            <div class="textbox">
+                <div class="password">
+                    <input type="password" class="form-control" name="senha" id="exampleInputPassword1" placeholder="Senha"[(ngModel)]="senha">
+                </div>
+            </div>
+
+            <button [disabled]="formLogin.invalid" class="btn btn-primary butao-form"> ENTRAR </button>
+            
+            <div class="esqueci">
+                <p>Esqueci a senha</p>
+            </div>
+            <div class="registre">
+                <p>Ainda não tem conta ? <a [routerLink]="['/cadastro']" style="text-decoration: None;" style="color:whitesmoke;"> Registre-se </a> </p>
+            </div>
+        </div>
+    </form>
+
+
+</body>
+
+</html>

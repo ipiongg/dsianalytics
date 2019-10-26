@@ -1,0 +1,26 @@
+<body>
+    <div class="analise">
+        <div style="display: block" class="bar">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabens" [options]="barChartOptions"
+                [legend]="barChartLegend" [chartType]="barChartType"></canvas>
+
+        </div>
+    </div>
+    <div *ngIf="this.ok == null">
+        <p> Aguarde... </p>
+    </div>
+
+    <div>
+        <h1>Analises texto realizadas {{quantTexto()}} </h1>
+        <h1>Analises comentario realizadas {{quantComentario()}}</h1>
+    </div>
+
+
+    <div>
+        <h1>Usuarios Cadastrados: {{quantuser()}}</h1>
+    </div>
+
+</body>
+<div>
+
+</div>

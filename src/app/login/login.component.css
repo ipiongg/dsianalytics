@@ -1,0 +1,99 @@
+*{
+    font-family: 'Montserrat';
+}
+
+html body{
+    margin:0;
+    padding: 0;
+
+    background:#2F2C2C;
+}
+
+.login-box{
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color:black;
+
+}
+
+.login-box h2{
+    margin-bottom: 40px ;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 51px;
+
+}
+.login-box h1{
+    overflow: auto;
+    font-size: 50px;
+    margin-bottom: 0px;
+    padding: 0;
+
+}
+.textbox{
+    width: 100%;
+    overflow: hidden;
+    font-size:20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 0.5px solid black;
+}
+.textbox input {
+    border: none;
+    outline: none;
+    background: none;
+    color: black;
+    font-size:18px;
+    width: 80%;
+    float: left;
+    margin:  10px;
+}
+.textbox ::placeholder{
+    color: black;
+}
+
+.btn{
+    width: 100%;
+    background:none;
+    border: 2px solid black;
+    color: black;
+    box-sizing: border-box;
+    border-radius: 39px;
+    padding: 4px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 37px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 12 0px;
+
+}
+.btn:hover{
+    background: rgba(255, 255, 255, 0.31);
+}
+.esqueci{
+    font-size: 15px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 24px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    
+}
+.registre{
+    font-size: 10px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
