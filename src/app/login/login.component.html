@@ -1,46 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
 </head>
 
 <body>
+    <div class="page login-page">
+        <div class="container d-flex align-items-center">
+            <div class="form-holder has-shadow">
+                <div class="row">
+                    <!-- Logo & Information Panel-->
+                    <div class="col-lg-4">
+                        <div class="info d-flex align-items-center">
+                            <div class="content">
+                                <div class="logo">
+                                    <h1>Login</h1>
+                                </div>
+                                <p>Bem vindo ao analytics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Form Panel    -->
+                    <div class="col-lg-8 bg-white">
+                        <div class="form d-flex align-items-center">
+                            <div class="content">
+                                <form method="post" class="form-validate" #formLogin="ngForm" (ngSubmit)="login(formLogin)">
+                                    
+                                    <div class="form-group">
+                                        <input id="login-username" type="text" name="nickname" required class="form-control" [(ngModel)]="nickname">
+                                        <label for="login-username" class="label-material">Login</label>
+                                    </div>
 
-    <form #formLogin="ngForm" (ngSubmit)="login(formLogin)">
-
-        <div class="login-box">
-            <h1>UP!MUSIC</h1>
-            <h2>Bem vindo</h2>
-            <div class="username">
-                <div class="textbox">
-                    <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Digite seu usuário" name='nickname' type="text" [(ngModel)]="nickname" />
+                                    <div class="form-group">
+                                        <input id="login-password" type="password" name="senha" required class="form-control" [(ngModel)]="senha">
+                                        <label for="login-password" class="label-material">Senha</label>
+                                    </div>
+                                    
+                                    <button [disabled]="formLogin.invalid" id="login" class="btn btn-dark">Login</button>
+                                    
+                                </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an
+                                    account? </small><a href="register.html" class="signup">Signup</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-                    
-
-            <div class="textbox">
-                <div class="password">
-                    <input type="password" class="form-control" name="senha" id="exampleInputPassword1" placeholder="Senha"[(ngModel)]="senha">
-                </div>
-            </div>
-
-            <button [disabled]="formLogin.invalid" class="btn btn-primary butao-form"> ENTRAR </button>
-            
-            <div class="esqueci">
-                <p>Esqueci a senha</p>
-            </div>
-            <div class="registre">
-                <p>Ainda não tem conta ? <a [routerLink]="['/cadastro']" style="text-decoration: None;" style="color:whitesmoke;"> Registre-se </a> </p>
             </div>
         </div>
-    </form>
-
+       
+    </div>
 
 </body>
 

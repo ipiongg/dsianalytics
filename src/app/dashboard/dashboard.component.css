@@ -1,8 +1,256 @@
-body{
-    background-color: white;
-}
+
 .analise{
-    width: 30%;
+    width: 100%;
+    background: white;
+}
+
+body {
+  overflow-x: hidden;
+  background: #F6F6F6;
+  
+
+}
+
+/*
+* ==========================================================
+*     SIDEBAR
+* ==========================================================
+*/
+nav.side-navbar {
+  background: #fff;
+  min-width: 250px;
+  max-width: 250px;
+  color: #686a76;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  z-index: 9;
+  
+
+}
+
+nav.side-navbar a {
+  color: inherit;
+  position: relative;
+  font-size: 0.9em;
+  
+}
+
+nav.side-navbar a i {
+  font-size: 1.2em;
+  margin-right: 10px;
+  -webkit-transition: none;
+  transition: none;
+  
+}
+
+nav.side-navbar a .badge {
+  vertical-align: middle;
+}
+
+nav.side-navbar .sidebar-header {
+  padding: 30px 15px;
+}
+
+nav.side-navbar .avatar {
+  width: 55px;
+  height: 55px;
+}
+
+nav.side-navbar .title {
+  margin-left: 10px;
+}
+
+nav.side-navbar .title h1 {
+  color: #333;
+}
+
+nav.side-navbar .title p {
+  font-size: 0.9em;
+  font-weight: 200;
+  margin-bottom: 0;
+  color: #aaa;
+}
+
+nav.side-navbar span.heading {
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-left: 20px;
+  color: #ccc;
+  font-size: 0.8em;
+  
+}
+
+nav.side-navbar ul {
+  padding: 15px 0;
+  
 }
 
 
+
+nav.side-navbar ul li a {
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-weight: 300;
+  border-left: 4px solid transparent;
+  
+}
+
+nav.side-navbar ul li a:hover {
+  background: #796AEE;
+  border-left: 4px solid #3b25e6;
+  color: #fff;
+}
+
+nav.side-navbar ul li li a {
+  padding-left: 50px;
+  background: #EEF5F9;
+}
+
+nav.side-navbar ul li.active > a {
+  background: #796AEE;
+  color: #fff;
+  border-left: 4px solid #3b25e6;
+}
+
+nav.side-navbar ul li.active > a:hover {
+  background: #796AEE;
+}
+
+nav.side-navbar ul li li.active > a {
+  background: #8e81f1;
+}
+
+nav.side-navbar ul li ul {
+  padding: 0;
+}
+
+/*
+* ==========================================================
+*     DASHBOARD COUNTS SECTION
+* ==========================================================
+*/
+section.dashboard-counts .icon {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  min-width: 40px;
+  max-width: 40px;
+  border-radius: 50%;
+ 
+}
+
+section.dashboard-counts .title {
+  font-size: 1.1em;
+  font-weight: 300;
+  color: #777;
+  margin: 0 20px;
+}
+
+section.dashboard-counts .progress {
+  margin-top: 10px;
+  height: 4px;
+  cursor: pointer;
+}
+
+section.dashboard-counts .number {
+  font-size: 1.8em;
+  font-weight: 300;
+}
+
+section.dashboard-counts .number strong {
+  font-weight: 700;
+}
+
+section.dashboard-counts .row {
+  padding: 30px 15px;
+  margin: 0;
+}
+
+section.dashboard-counts div[class*='col-'] .item {
+  border-right: 1px solid #eee;
+  padding: 15px 0;
+}
+
+section.dashboard-counts div[class*='col-']:last-of-type .item {
+  border-right: none;
+}
+
+/*
+* ==========================================================
+*     DASHBOARD HEADER SECTION
+* ==========================================================
+*/
+.statistic {
+    padding: 20px 15px;
+    margin-bottom: 15px;
+  }
+  
+  .statistic:last-of-type {
+    margin-bottom: 0;
+  }
+  
+  .statistic strong {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: 700;
+    line-height: 1;
+  }
+  
+  .statistic small {
+    color: #aaa;
+    text-transform: uppercase;
+  }
+  
+  .statistic .icon {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    min-width: 40px;
+    max-width: 40px;
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .chart .title {
+    padding: 15px 0 0 15px;
+  }
+  
+  .chart .title strong {
+    font-weight: 700;
+    font-size: 1.2em;
+  }
+  
+  .chart .title small {
+    color: #aaa;
+    text-transform: uppercase;
+  }
+  
+  .chart .line-chart {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+  }
+  
+  .chart .line-chart canvas {
+    width: calc(100% - 30px) !important;
+  }
+  
+  .chart .bar-chart {
+    margin-bottom: 15px;
+  }
+  
+  .chart .bar-chart canvas {
+    padding: 15px;
+    width: 100%;
+    margin: 0;
+  }
+  #logout{
+      color: white;
+      text-align: center;
+      cursor: pointer;
+
+  }
