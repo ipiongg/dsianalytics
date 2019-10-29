@@ -10,6 +10,7 @@
     <meta name="robots" content="all,follow">
 </head>
 
+
 <body>
     <div class="page login-page">
         <div class="container d-flex align-items-center">
@@ -20,9 +21,11 @@
                         <div class="info d-flex align-items-center">
                             <div class="content">
                                 <div class="logo">
-                                    <h1>Login</h1>
+                                    <img src=".././../assets/logo-group.svg">
+                                    <br>
+                                    <p>Bem vindo ao analytics</p>
                                 </div>
-                                <p>Bem vindo ao analytics</p>
+
                             </div>
                         </div>
                     </div>
@@ -30,20 +33,28 @@
                     <div class="col-lg-8 bg-white">
                         <div class="form d-flex align-items-center">
                             <div class="content">
-                                <form method="post" class="form-validate" #formLogin="ngForm" (ngSubmit)="login(formLogin)">
-                                    
+                                <form method="post" class="form-validate" #formLogin="ngForm"
+                                    (ngSubmit)="login(formLogin)">
+
                                     <div class="form-group">
-                                        <input id="login-username" type="text" name="nickname" required class="form-control" [(ngModel)]="nickname">
-                                        <label for="login-username" class="label-material">Login</label>
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Login" value="Login" class="form-control"
+                                                [(ngModel)]="nickname" name=nickname>
+                                        </mat-form-field>
+
+
                                     </div>
 
                                     <div class="form-group">
-                                        <input id="login-password" type="password" name="senha" required class="form-control" [(ngModel)]="senha">
-                                        <label for="login-password" class="label-material">Senha</label>
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Password" value="password" id="login-password"
+                                                class="form-control" [(ngModel)]="senha" name=nickname type="password">
+                                        </mat-form-field>
                                     </div>
-                                    
-                                    <button [disabled]="formLogin.invalid" id="login" class="btn btn-dark">Login</button>
-                                    
+
+                                    <button [disabled]="formLogin.invalid" id="login"
+                                        class="btn btn-dark">Login</button>
+
                                 </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an
                                     account? </small><a href="register.html" class="signup">Signup</a>
                             </div>
@@ -52,7 +63,7 @@
                 </div>
             </div>
         </div>
-       
+
     </div>
 
 </body>

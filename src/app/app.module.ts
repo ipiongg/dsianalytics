@@ -10,17 +10,22 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms'
 import { ChartsModule } from 'ng2-charts';
 import { DataService } from './data.service';
+import {MatInputModule} from '@angular/material/input';
+import { TestesComponent } from './testes/testes.component';
+
 
 
 const rotas: Routes = [
   {path: 'dashboard', component: DashboardComponent,},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'testes', component: TestesComponent}
 ];
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    TestesComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +34,7 @@ const rotas: Routes = [
     HttpClientModule,
     FormsModule,
     ChartsModule,
+    MatInputModule,
     RouterModule.forRoot(rotas)
   ],
   providers: [DataService],

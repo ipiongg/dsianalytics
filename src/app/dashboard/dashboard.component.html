@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,9 @@
     <header class="logo">
         <nav class="navbar navbar-light bg-dark">
             <a class="navbar-brand" href="#">
-                <img src="/docs/4.1/assets/brand/bootst">
+                <img src=".././../assets/logo-group.svg">
             </a>
-            <h5 id="logout" [routerLink]="['/login']" >Logout <i class="fa fa-sign-out" ></i></h5>
+            <h5 id="logout" [routerLink]="['/login']">Logout <i class="fa fa-sign-out"></i></h5>
         </nav>
     </header>
     <div class="page-content d-flex align-items-stretch">
@@ -21,7 +22,8 @@
         <nav class="side-navbar">
             <!-- Sidebar Header-->
             <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src=".././../assets/avatar-5.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"><img src=".././../assets/avatar-5.jpg" alt="..." class="img-fluid rounded-circle">
+                </div>
                 <div class="title">
                     <h1 class="h4">Samuel Junior</h1>
                     <p>Proprietario</p>
@@ -30,12 +32,12 @@
             <!-- Sidebar Navidation Menus-->
             <span class="heading">Main</span>
             <ul class="list-unstyled">
-                <li class="active"><a [routerLink]="['/dashboard']" > <i class="icon-home"></i>Dashboard</a></li>
-                <li><a [routerLink]="['/login']" > <i class="icon-grid"></i>Analises </a></li>
+                <li class="active"><a [routerLink]="['/dashboard']"> <i class="icon-home"></i>Dashboard</a></li>
+                <li><a [routerLink]="['/login']"> <i class="icon-grid"></i>Analises </a></li>
                 <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
             </ul>
-            
+
             <span class="heading">Extras</span>
             <ul class="list-unstyled">
                 <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
@@ -44,7 +46,7 @@
                 <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
             </ul>
         </nav>
-    
+
 
         <div class="container-fluid">
             <section class="dashboard-counts no-padding-bottom">
@@ -113,17 +115,25 @@
                 <div class="container-fluid">
                     <div class="row">
 
+
+
+                        <div *ngIf="this.ok == null">
+                            <p> Aguarde... </p>
+                        </div>
+
                         <!-- Estatisticas -->
                         <div class="statistics col-lg-3 col-12">
                             <div class="statistic d-flex align-items-center bg-white has-shadow">
                                 <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
-                                <div class="text"><strong>{{quantTexto()}}</strong><br><small>Analises de Texto</small></div>
+                                <div class="text"><strong>{{quantTexto()}}</strong><br><small>Analises de Texto</small>
+                                </div>
                             </div>
                             <div class="statistic d-flex align-items-center bg-white has-shadow">
                                 <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
-                                <div class="text"><strong>{{quantComentario()}}</strong><br><small>Analises de Comentarios</small></div>
+                                <div class="text"><strong>{{quantComentario()}}</strong><br><small>Analises de
+                                        Comentarios</small></div>
                             </div>
-                           
+
                         </div>
 
                         <div class="chart col-lg-6 col-12">
@@ -135,7 +145,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="chart col-lg-3 col-12">
                             <!-- Bar Chart   -->
                             <div class="bar-chart has-shadow bg-white">
@@ -144,36 +154,16 @@
                                 <canvas id="barChartHome"></canvas>
                             </div>
                             <!-- Numbers-->
-                          
+
                         </div>
 
                     </div>
                 </div>
             </section>
 
-
-
-            <div *ngIf="this.ok == null">
-                <p> Aguarde... </p>
-            </div>
-
-            <div>
-                <h1>Analises texto realizadas {{quantTexto()}} </h1>
-                <h1>Analises comentario realizadas {{quantComentario()}}</h1>
-            </div>
-
-            <div>
-                <h1>Usuarios Cadastrados: {{quantuser()}}</h1>
-            </div>
-
-
-
         </div>
 
     </div>
-
-
-
 
 </body>
 </html>
