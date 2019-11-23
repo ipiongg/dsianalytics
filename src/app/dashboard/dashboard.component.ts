@@ -62,6 +62,13 @@ export class DashboardComponent implements OnInit {
     return this.qtAnalisetexto;
   }
 
+  testao(){
+    for (let teste of this.analises.analise_foto){
+      return teste.tipoAnalise;
+    }
+    
+  }
+
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true

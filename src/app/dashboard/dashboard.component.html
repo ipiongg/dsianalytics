@@ -11,7 +11,7 @@
 <body>
     <header class="logo">
         <nav class="navbar navbar-light bg-dark">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" [routerLink]="['/dashboard']">
                 <img src=".././../assets/logo-group.svg">
             </a>
             <h5 id="logout" [routerLink]="['/login']">Logout <i class="fa fa-sign-out"></i></h5>
@@ -33,9 +33,8 @@
             <span class="heading">Main</span>
             <ul class="list-unstyled">
                 <li class="active"><a [routerLink]="['/dashboard']"> <i class="icon-home"></i>Dashboard</a></li>
-                <li><a [routerLink]="['/login']"> <i class="icon-grid"></i>Analises </a></li>
-                <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
-                <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
+                <li><a [routerLink]="['/login']"> <i class="icon-grid"></i>Analises de Sentimento</a></li>
+                
             </ul>
 
             <span class="heading">Extras</span>
@@ -51,7 +50,7 @@
         <div class="container-fluid">
             <section class="dashboard-counts no-padding-bottom">
                 <div class="container-fluid">
-                    <div class="row bg-white has-shadow">
+                    <div class="row bg-white has-shadow ">
                         <!-- Item -->
                         <div class="col-xl-3 col-sm-6">
                             <div class="item d-flex align-items-center">
@@ -150,7 +149,8 @@
                             <!-- Bar Chart   -->
                             <div class="bar-chart has-shadow bg-white">
                                 <div class="title"><strong class="text-violet">95%</strong><br><small>Current Server
-                                        Uptime</small></div>
+                                        Uptime</small>
+                                </div>
                                 <canvas id="barChartHome"></canvas>
                             </div>
                             <!-- Numbers-->
@@ -166,4 +166,19 @@
     </div>
 
 </body>
+<!--
+<div >
+    <section>
+        {{testao()}}
+    </section>
+    <section *ngFor="let u of this.analises.usuarios">
+        {{u.nome}}
+        {{u.senha}}
+        {{u.email}}
+    </section>
+
+
+</div>
+-->
+
 </html>
