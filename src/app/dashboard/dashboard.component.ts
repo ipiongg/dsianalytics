@@ -16,8 +16,8 @@ export class DashboardComponent implements OnInit {
   quantidade = 50;
   qtAnalisetexto = null;
   qtAnalisecoment = null;
-  lista2= 20;
-  lista = 300; 
+  valor_azul= 0;
+  valor_rosa = 0; 
 
   constructor(private DataService$: DataService) { }
 
@@ -25,12 +25,15 @@ export class DashboardComponent implements OnInit {
     return this.DataService$.buscarDadosBD().subscribe(data => {
       this.analises = data;
       this.ok = data;
-      
     })
+  }
 
+  teste() {
+    console.log(1, this.valor_azul)
   }
 
   quantuser() {
+    this.teste()
     let cont = 0;
     /*console.log(this.analises)*/
     for (let user of this.analises.usuarios){
@@ -38,6 +41,8 @@ export class DashboardComponent implements OnInit {
         cont = cont+1
       }
     }
+    this.valor_azul = cont
+    console.log(2, this.valor_azul)
     return cont
   }
   quantComentario() {
@@ -58,7 +63,7 @@ export class DashboardComponent implements OnInit {
     let contT = 0;
     /*console.log(this.analises.analises_geral)*/ 
     for (let analise of this.analises.analises_geral){
-      console.log(analise.analiseLegenda)
+      /*console.log(analise.analiseLegenda)*/
       if(analise.analiseLegenda != false){
         contT = contT+1
         
@@ -77,9 +82,9 @@ export class DashboardComponent implements OnInit {
   public barChartLabens = ['Analise Comentarios', 'Analise Texto'];
   public barChartType = 'pie';
   public barChartLegend = true;
-
+  
   public barChartData = [
-    { data: [this.lista, this.lista2] }
+    { data: [this.valor_azul, this.valor_rosa] }
   ];
-
+  
 }
