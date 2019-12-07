@@ -63,15 +63,15 @@ export class DashboardComponent implements OnInit {
     let contT = 0;
     /*console.log(this.analises.analises_geral)*/ 
     for (let analise of this.analises.analises_geral){
-      /*console.log(analise.analiseLegenda)*/
       if(analise.analiseLegenda != false){
         contT = contT+1
-        
       }
     }
     
     return contT 
   }
+
+  
 
   public barChartOptions = {
     scaleShowVerticalLines: false,
