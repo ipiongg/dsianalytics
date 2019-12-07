@@ -28,6 +28,7 @@ export class DashboardComponent implements OnInit {
   public cont = 0;
   public contaC = 0;
   public contT = 0;
+  public qtd_analises = 0;
 
   constructor(public DataService$: DataService) { }
 
@@ -40,7 +41,7 @@ export class DashboardComponent implements OnInit {
     this.DataService$.buscarDadosBD().subscribe(data => {
       this.analises = data;
       this.ok = data;
-      
+      console.log(this.analises)
 
       for (let user of this.ok.usuarios) {
         if (user.usuario != null) {
@@ -67,6 +68,9 @@ export class DashboardComponent implements OnInit {
       this.azul.push(this.contT)
       this.dados()
       this.loading = false
+      
+      //Retorna a quatidade de análises realizadas
+      this.qtd_analises = this.analises.analises_geral.length
     })
   }
 
