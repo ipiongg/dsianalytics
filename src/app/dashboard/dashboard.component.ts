@@ -10,6 +10,11 @@ import { Chart } from 'chart.js';
   encapsulation: ViewEncapsulation.None
 })
 export class DashboardComponent implements OnInit {
+  public barChartOptions
+  public barChartLabens
+  public barChartType
+  public barChartLegend
+  public barChartData
 
   analises = null;
   ok = null;
@@ -56,26 +61,29 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.qtAnalisetexto = contT
+      this.dados()
 
-      
-      console.log(this.vermelho)
     })
-
     return true
   }
 
-  public barChartOptions = {
-    scaleShowVerticalLines: false,
-    responsive: true
+  dados(){
 
-  };
 
-  public barChartLabens = ['Analise Comentarios', 'Analise Texto'];
-  public barChartType = 'pie';
-  public barChartLegend = true;
+    this.barChartOptions = {
+      scaleShowVerticalLines: false,
+      responsive: true
+  
+    };
+  
+    this.barChartLabens = ['Analise Comentarios', 'Analise Texto'];
+    this.barChartType= 'pie';
+    this.barChartLegend= true;
+  
+    this.barChartData= [
+      { data: [this.vermelho, this.azul], label: 'Analises' }
+    ];
+  }
 
-  public barChartData = [
-    { data: [this.vermelho, this.azul], label: 'Analises' }
-  ];
 
 }
