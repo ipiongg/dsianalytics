@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
     console.log(1, this.valor_azul)
   }
 
-  quantuser() {
+  get quantuser() {
     this.teste()
     let cont = 0;
     /*console.log(this.analises)*/
@@ -45,6 +45,7 @@ export class DashboardComponent implements OnInit {
     console.log(2, this.valor_azul)
     return cont
   }
+
   quantComentario() {
     let contaC = 0;
     
@@ -71,8 +72,6 @@ export class DashboardComponent implements OnInit {
     return contT 
   }
 
-  
-
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -84,7 +83,7 @@ export class DashboardComponent implements OnInit {
   public barChartLegend = true;
   
   public barChartData = [
-    { data: [this.valor_azul, 21], label: "Gráfico 1" }
+    { data: [this.valor_azul, this.valor_rosa], label: "Gráfico 1" }
   ];
   
 }
