@@ -8,164 +8,172 @@
     <title>Document</title>
 </head>
 
-<body>
-    <header class="logo">
-        <nav class="navbar navbar-light bg-dark">
-            <a class="navbar-brand" [routerLink]="['/dashboard']">
-                <img src=".././../assets/logo-group.svg">
-            </a>
-            <h5 id="logout" [routerLink]="['/login']">Logout <i class="fa fa-sign-out"></i></h5>
-        </nav>
-    </header>
-    <div class="page-content d-flex align-items-stretch">
-        <!-- Side Navbar -->
-        <nav class="side-navbar">
-            <!-- Sidebar Header-->
-            <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src=".././../assets/avatar-5.jpg" alt="..." class="img-fluid rounded-circle">
-                </div>
-                <div class="title">
-                    <h1 class="h4">Samuel Junior</h1>
-                    <p>Proprietario</p>
-                </div>
-            </div>
-            <!-- Sidebar Navidation Menus-->
-            <span class="heading">Main</span>
-            <ul class="list-unstyled">
-                <li class="active"><a [routerLink]="['/dashboard']"> <i class="icon-home"></i>Dashboard</a></li>
-                <li><a [routerLink]="['/login']"> <i class="icon-grid"></i>Analises de Sentimento</a></li>
-                
-            </ul>
-
-            <span class="heading">Extras</span>
-            <ul class="list-unstyled">
-                <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
-                <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>
-                <li> <a href="#"> <i class="icon-mail"></i>Demo </a></li>
-                <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
-            </ul>
-        </nav>
-
-
-        <div class="container-fluid">
-            <section class="dashboard-counts no-padding-bottom">
-                <div class="container-fluid">
-                    <div class="row bg-white has-shadow ">
-                        <!-- Item -->
-                        <div class="col-xl-3 col-sm-6">
-                            <div class="item d-flex align-items-center">
-                                <div class="icon bg-violet"><i class="icon-user"></i></div>
-                                <div class="title"><span>Usuarios<br>Cadastrados</span>
-                                    <div class="progress">
-                                        <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
-                                    </div>
-                                </div>
-                                <div class="number"><strong> {{quantuser}} </strong></div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-sm-6">
-                            <div class="item d-flex align-items-center">
-                                <div class="icon bg-violet"><i class="icon-user"></i></div>
-                                <div class="title"><span>New<br>Clients</span>
-                                    <div class="progress">
-                                        <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
-                                    </div>
-                                </div>
-                                <div class="number"><strong>25</strong></div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-sm-6">
-                            <div class="item d-flex align-items-center">
-                                <div class="icon bg-violet"><i class="icon-user"></i></div>
-                                <div class="title"><span>New<br>Clients</span>
-                                    <div class="progress">
-                                        <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
-                                    </div>
-                                </div>
-                                <div class="number"><strong>25</strong></div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-sm-6">
-                            <div class="item d-flex align-items-center">
-                                <div class="icon bg-violet"><i class="icon-user"></i></div>
-                                <div class="title"><span>New<br>Clients</span>
-                                    <div class="progress">
-                                        <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
-                                    </div>
-                                </div>
-                                <div class="number"><strong>25</strong></div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </section>
-
-            <br><br>
-            <section class="dashboard-header">
-                <div class="container-fluid">
-                    <div class="row">
-
-
-
-                        <div *ngIf="this.ok == null">
-                            <p> Aguarde... </p>
-                        </div>
-
-                        <!-- Estatisticas -->
-                        <div class="statistics col-lg-3 col-12">
-                            <div class="statistic d-flex align-items-center bg-white has-shadow">
-                                <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
-                                <div class="text"><strong>{{quantTexto()}}</strong><br><small>Analises de Texto</small>
-                                </div>
-                            </div>
-                            <div class="statistic d-flex align-items-center bg-white has-shadow">
-                                <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
-                                <div class="text"><strong>{{quantComentario()}}</strong><br><small>Analises de
-                                        Comentarios</small></div>
-                            </div>
-
-                        </div>
-
-                        <div class="chart col-lg-6 col-12">
-                            <div class="analise">
-                                <div style="display: block" class="bar">
-                                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabens"
-                                        [options]="barChartOptions" [legend]="barChartLegend"
-                                        [chartType]="barChartType"></canvas>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="chart col-lg-3 col-12">
-                            <!-- Bar Chart   -->
-                            <div class="bar-chart has-shadow bg-white">
-                                <div class="title"><strong class="text-violet">95%</strong><br><small>Current Server
-                                        Uptime</small>
-                                </div>
-                                <canvas id="barChartHome"></canvas>
-                            </div>
-                            <!-- Numbers-->
-
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-        </div>
-
-    </div>
-</body>
-<div>
+<div *ngIf="this.loading == null">
+    <p>Aguarde um momento</p>
 </div>
+
+<div *ngIf="this.loading != null">
+    <body>
+        <header class="logo">
+            <nav class="navbar navbar-light bg-dark">
+                <a class="navbar-brand" [routerLink]="['/dashboard']">
+                    <img src=".././../assets/logo-group.svg">
+                </a>
+                <h5 id="logout" [routerLink]="['/login']">Logout <i class="fa fa-sign-out"></i></h5>
+            </nav>
+        </header>
+        <div class="page-content d-flex align-items-stretch">
+            <!-- Side Navbar -->
+            <nav class="side-navbar">
+                <!-- Sidebar Header-->
+                <div class="sidebar-header d-flex align-items-center">
+                    <div class="avatar"><img src=".././../assets/avatar-5.jpg" alt="..." class="img-fluid rounded-circle">
+                    </div>
+                    <div class="title">
+                        <h1 class="h4">Samuel Junior</h1>
+                        <p>Proprietario</p>
+                    </div>
+                </div>
+                <!-- Sidebar Navidation Menus-->
+                <span class="heading">Main</span>
+                <ul class="list-unstyled">
+                    <li class="active"><a [routerLink]="['/dashboard']"> <i class="icon-home"></i>Dashboard</a></li>
+                    <li><a [routerLink]="['/login']"> <i class="icon-grid"></i>Analises de Sentimento</a></li>
+                    
+                </ul>
+    
+                <span class="heading">Extras</span>
+                <ul class="list-unstyled">
+                    <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
+                    <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>
+                    <li> <a href="#"> <i class="icon-mail"></i>Demo </a></li>
+                    <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
+                </ul>
+            </nav>
+    
+    
+            <div class="container-fluid">
+                <section class="dashboard-counts no-padding-bottom">
+                    <div class="container-fluid">
+                        <div class="row bg-white has-shadow ">
+                            <!-- Item -->
+                            <div class="col-xl-3 col-sm-6">
+                                <div class="item d-flex align-items-center">
+                                    <div class="icon bg-violet"><i class="icon-user"></i></div>
+                                    <div class="title"><span>Usuarios<br>Cadastrados</span>
+                                        <div class="progress">
+                                            <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25"
+                                                aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+                                        </div>
+                                    </div>
+                                    <div class="number"><strong> {{vermelho[0]}} </strong></div>
+                                </div>
+                            </div>
+    
+                            <div class="col-xl-3 col-sm-6">
+                                <div class="item d-flex align-items-center">
+                                    <div class="icon bg-violet"><i class="icon-user"></i></div>
+                                    <div class="title"><span>New<br>Clients</span>
+                                        <div class="progress">
+                                            <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25"
+                                                aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+                                        </div>
+                                    </div>
+                                    <div class="number"><strong>25</strong></div>
+                                </div>
+                            </div>
+    
+                            <div class="col-xl-3 col-sm-6">
+                                <div class="item d-flex align-items-center">
+                                    <div class="icon bg-violet"><i class="icon-user"></i></div>
+                                    <div class="title"><span>New<br>Clients</span>
+                                        <div class="progress">
+                                            <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25"
+                                                aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+                                        </div>
+                                    </div>
+                                    <div class="number"><strong>25</strong></div>
+                                </div>
+                            </div>
+    
+                            <div class="col-xl-3 col-sm-6">
+                                <div class="item d-flex align-items-center">
+                                    <div class="icon bg-violet"><i class="icon-user"></i></div>
+                                    <div class="title"><span>New<br>Clients</span>
+                                        <div class="progress">
+                                            <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25"
+                                                aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+                                        </div>
+                                    </div>
+                                    <div class="number"><strong>25</strong></div>
+                                </div>
+                            </div>
+    
+    
+                        </div>
+                    </div>
+                </section>
+    
+                <br><br>
+                <section class="dashboard-header">
+                    <div class="container-fluid">
+                        <div class="row">
+    
+    
+    
+                            <div *ngIf="this.ok == null">
+                                <p> Aguarde... </p>
+                            </div>
+    
+                            <!-- Estatisticas -->
+                            <div class="statistics col-lg-3 col-12">
+                                <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                    <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
+                                    <div class="text"><strong>{{qtAnalisetexto}}</strong><br><small>Analises de Texto</small>
+                                    </div>
+                                </div>
+                                <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                    <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
+                                    <div class="text"><strong>{{qtAnalisecoment}}</strong><br><small>Analises de
+                                            Comentarios</small></div>
+                                </div>
+    
+                            </div>
+    
+                            <div class="chart col-lg-6 col-12">
+                                <div class="analise">
+                                    <div style="display: block" class="bar">
+                                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabens"
+                                            [options]="barChartOptions" [legend]="barChartLegend"
+                                            [chartType]="barChartType"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="chart col-lg-3 col-12">
+                                <!-- Bar Chart   -->
+                                <div class="bar-chart has-shadow bg-white">
+                                    <div class="title"><strong class="text-violet">95%</strong><br><small>Current Server
+                                            Uptime</small>
+                                    </div>
+                                    <canvas id="barChartHome"></canvas>
+                                </div>
+                                <!-- Numbers-->
+    
+                            </div>
+    
+                        </div>
+                    </div>
+                </section>
+    
+            </div>
+    
+        </div>
+    </body>
+</div>
+
+<div *ng>
+
+</div>
+
 </html>
-<h1>{{quantComentario()}}</h1>

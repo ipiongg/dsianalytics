@@ -16,61 +16,57 @@ export class DashboardComponent implements OnInit {
   quantidade = 50;
   qtAnalisetexto = null;
   qtAnalisecoment = null;
-  valor_azul= 0;
-  valor_rosa = 0; 
+  vermelho= [];
+  azul = 50; 
+  loading = null
 
-  constructor(private DataService$: DataService) { }
+  constructor(public DataService$: DataService) { }
 
   ngOnInit() {
-    return this.DataService$.buscarDadosBD().subscribe(data => {
-      this.analises = data;
-      this.ok = data;
-    })
+    this.loading = this.buscarDados();
   }
 
   teste() {
-    console.log(1, this.valor_azul)
+    document.querySelector("canvas").click();
   }
 
-  get quantuser() {
-    this.teste()
-    let cont = 0;
-    /*console.log(this.analises)*/
-    for (let user of this.analises.usuarios){
-      if(user.usuario != null){
-        cont = cont+1
+  async buscarDados() {
+    await this.DataService$.buscarDadosBD().subscribe(data => {
+      this.analises = data;
+      this.ok = data;
+      let cont = 0;
+      let contaC = 0;
+      let contT = 0;
+
+
+      for (let user of this.ok.usuarios){
+        if(user.usuario != null){
+          cont = cont+1
+        }
       }
-    }
-    this.valor_azul = cont
-    console.log(2, this.valor_azul)
-    return cont
+      this.vermelho.push(cont)
+
+      for (let analise of this.ok.analises_geral) {
+        //console.log(analise.analiseComentarios)
+        if(analise.analiseComentarios != false){
+          contaC = contaC +1
+        }
+      }
+      this.qtAnalisecoment = contaC
+
+      for (let analise of this.ok.analises_geral){
+        if(analise.analiseLegenda != false){
+          contT = contT+1
+        }
+      }
+      this.qtAnalisetexto = contT
+
+      //console.log(this.vermelho)
+    })
+
+    return true
   }
 
-  quantComentario() {
-    let contaC = 0;
-    
-    for (let analise of this.analises.analises_geral) {
-      /*console.log(analise.analiseComentarios)*/
-      if(analise.analiseComentarios != false){
-        contaC = contaC +1
-      }
-    }
-    return contaC  
-    
-  }
-  
-    
-  quantTexto() {
-    let contT = 0;
-    /*console.log(this.analises.analises_geral)*/ 
-    for (let analise of this.analises.analises_geral){
-      if(analise.analiseLegenda != false){
-        contT = contT+1
-      }
-    }
-    
-    return contT 
-  }
 
   public barChartOptions = {
     scaleShowVerticalLines: false,
@@ -83,7 +79,7 @@ export class DashboardComponent implements OnInit {
   public barChartLegend = true;
   
   public barChartData = [
-    { data: [this.valor_azul, this.valor_rosa], label: "Gráfico 1" }
+    { data: [this.vermelho, this.azul], label: 'Analises' }
   ];
   
 }
