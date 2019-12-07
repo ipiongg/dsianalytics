@@ -21,66 +21,67 @@ export class DashboardComponent implements OnInit {
   quantidade = 50;
   qtAnalisetexto = null;
   qtAnalisecoment = null;
-  vermelho= [];
-  azul = 50; 
-  loading = null
+  vermelho = [];
+  azul = [];
+  loading = false
+
+  public cont = 0;
+  public contaC = 0;
+  public contT = 0;
 
   constructor(public DataService$: DataService) { }
 
   ngOnInit() {
-    this.loading = this.buscarDados();
-
+  this.buscarDados();
   }
 
-  async buscarDados() {
-    await this.DataService$.buscarDadosBD().subscribe(data => {
+  buscarDados() {
+    this.loading = true
+    this.DataService$.buscarDadosBD().subscribe(data => {
       this.analises = data;
       this.ok = data;
-      let cont = 0;
-      let contaC = 0;
-      let contT = 0;
+      
 
-      for (let user of this.ok.usuarios){
-        if(user.usuario != null){
-          cont = cont+1
+      for (let user of this.ok.usuarios) {
+        if (user.usuario != null) {
+          this.cont = this.cont + 1
         }
       }
-      this.vermelho.push(cont)
 
       for (let analise of this.ok.analises_geral) {
         /*console.log(analise.analiseComentarios)*/
-        if(analise.analiseComentarios != false){
-          contaC = contaC +1
+        if (analise.analiseComentarios != false) {
+          this.contaC = this.contaC + 1
         }
       }
-      this.qtAnalisecoment = contaC
+      this.vermelho.push(this.contaC)
+      this.qtAnalisecoment = this.contaC
 
-      for (let analise of this.ok.analises_geral){
-        if(analise.analiseLegenda != false){
-          contT = contT+1
+      for (let analise of this.ok.analises_geral) {
+        if (analise.analiseLegenda != false) {
+          this.contT = this.contT + 1
         }
       }
-      this.qtAnalisetexto = contT
+
+      this.qtAnalisetexto = this.contT
+      this.azul.push(this.contT)
       this.dados()
-
+      this.loading = false
     })
-    return true
   }
 
-  dados(){
-
-
+  dados() {
     this.barChartOptions = {
       scaleShowVerticalLines: false,
       responsive: true
-  
+
     };
-  
+
     this.barChartLabens = ['Analise Comentarios', 'Analise Texto'];
-    this.barChartType= 'pie';
-    this.barChartLegend= true;
-  
-    this.barChartData= [
+    this.barChartType = 'pie';
+    this.barChartLegend = true;
+
+    this.barChartData = [
       { data: [this.vermelho, this.azul], label: 'Analises' }
     ];
   }
