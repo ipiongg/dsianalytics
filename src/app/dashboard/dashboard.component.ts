@@ -16,8 +16,8 @@ export class DashboardComponent implements OnInit {
   quantidade = 50;
   qtAnalisetexto = null;
   qtAnalisecoment = null;
-  lista2= 20;
-  lista = 300; 
+  lista2= 0;
+  lista = 0; 
 
   constructor(private DataService$: DataService) { }
 
@@ -38,6 +38,8 @@ export class DashboardComponent implements OnInit {
         cont = cont+1
       }
     }
+    
+    this.lista2=cont
     return cont
   }
   quantComentario() {
@@ -58,15 +60,15 @@ export class DashboardComponent implements OnInit {
     let contT = 0;
     /*console.log(this.analises.analises_geral)*/ 
     for (let analise of this.analises.analises_geral){
-      console.log(analise.analiseLegenda)
       if(analise.analiseLegenda != false){
         contT = contT+1
-        
       }
     }
     
     return contT 
   }
+
+  
 
   public barChartOptions = {
     scaleShowVerticalLines: false,
@@ -79,7 +81,7 @@ export class DashboardComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData = [
-    { data: [this.lista, this.lista2] }
+    { data: [30, 50], label: 'Analises' }
   ];
 
 }
