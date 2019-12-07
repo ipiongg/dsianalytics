@@ -84,7 +84,7 @@ export class DashboardComponent implements OnInit {
   public barChartLegend = true;
   
   public barChartData = [
-    { data: [this.valor_azul, this.valor_rosa] }
+    { data: [this.valor_azul, 21], label: "Gráfico 1" }
   ];
   
 }

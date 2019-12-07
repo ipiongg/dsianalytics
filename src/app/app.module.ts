@@ -17,7 +17,7 @@ import { TestesComponent } from './testes/testes.component';
 
 const rotas: Routes = [
   {path: 'dashboard', component: DashboardComponent,},
-  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path: 'testes', component: TestesComponent}
 ];
 @NgModule({
