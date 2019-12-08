@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
     this.DataService$.buscarDadosBD().subscribe(data => {
       this.analises = data;
       this.ok = data;
-      console.log(this.analises)
+      console.log(this.analises.analises_geral)
 
       for (let user of this.ok.usuarios) {
         if (user.usuario != null) {
@@ -75,7 +75,7 @@ export class DashboardComponent implements OnInit {
           this.contF = this.contF + 1
           //console.log(analise.analiseFoto)
         }
-      }
+      } 
 
       this.qtAnalisetexto = this.contT
       this.azul.push(this.contT)
