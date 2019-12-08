@@ -26,9 +26,10 @@ export class DashboardComponent implements OnInit {
   loading = false
 
   public cont = 0;
-  public contaC = 0;
+  public contC = 0;
   public contT = 0;
-  public qtd_analises = 0;
+  public contF = 0;
+  public qtd_analises_total = 0;
 
   constructor(public DataService$: DataService) { }
 
@@ -49,18 +50,30 @@ export class DashboardComponent implements OnInit {
         }
       }
 
-      for (let analise of this.ok.analises_geral) {
-        /*console.log(analise.analiseComentarios)*/
-        if (analise.analiseComentarios != false) {
-          this.contaC = this.contaC + 1
-        }
-      }
-      this.vermelho.push(this.contaC)
-      this.qtAnalisecoment = this.contaC
-
+      //Análise de Textos
       for (let analise of this.ok.analises_geral) {
         if (analise.analiseLegenda != false) {
           this.contT = this.contT + 1
+          //console.log(analise.analiseLegenda)
+        }
+      }
+
+      //Análise de Comentários
+      for (let analise of this.ok.analises_geral) {
+        if (analise.analiseComentarios != false) {
+          this.contC = this.contC + 1
+          //console.log(analise.analiseComentarios)
+
+        }
+      }
+      this.vermelho.push(this.contC)
+      this.qtAnalisecoment = this.contC
+
+      //Análise de Fotos
+      for (let analise of this.ok.analises_geral) {
+        if (analise.analiseFoto != false) {
+          this.contF = this.contF + 1
+          //console.log(analise.analiseFoto)
         }
       }
 
@@ -68,9 +81,9 @@ export class DashboardComponent implements OnInit {
       this.azul.push(this.contT)
       this.dados()
       this.loading = false
-      
+
       //Retorna a quatidade de análises realizadas
-      this.qtd_analises = this.analises.analises_geral.length
+      this.qtd_analises_total = this.contT + this.contC + this.contF
     })
   }
 
