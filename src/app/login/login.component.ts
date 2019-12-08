@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AnalisesService } from 'src/app/analises.service';
 import { Router } from '@angular/router';
 import { TouchSequence } from 'selenium-webdriver';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   public id: any;
   nickname = null;
@@ -17,9 +19,6 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() { }
-
-
-
 
   async login(formLogin) {
     let response = await this.AnaliseService.efetuarLogin(this.nickname, this.senha).subscribe(res => {
