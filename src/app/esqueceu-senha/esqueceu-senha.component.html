@@ -38,26 +38,17 @@
 
                                     <div class="form-group">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Usuário" value="Login" class="form-control"
+                                            <input matInput placeholder="E-mailgit" value="Login" class="form-control"
                                                 [(ngModel)]="nickname" name=nickname id='login-username'>
-                                        </mat-form-field>
-
-
-                                    </div>
-
-                                    <div class="form-group">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Senha" value="password" id="login-password"
-                                                class="form-control" [(ngModel)]="senha" name=nickname type="password">
                                         </mat-form-field>
                                     </div>
 
                                     <button [disabled]="formLogin.invalid" id="login"
-                                        class="btn btn-dark">Entrar</button>
+                                        class="btn btn-dark">Redefinir</button>
 
                                 </form>
                                 
-                                    <a class="forgot-pass" [routerLink]="['/redefinir-senha']">Esqueceu sua senha?</a> <br>
+                                    <a class="forgot-pass" [routerLink]="['']">Voltar</a> <br>
                                 <!--
                                     <small>Do not have an account? </small><a href="register.html" class="signup">Signup</a>
                                 -->
