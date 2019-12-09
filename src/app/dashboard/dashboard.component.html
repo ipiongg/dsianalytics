@@ -33,7 +33,7 @@
                     </div>
                     <div class="title">
                         <h1 class="h4">Samuel Junior</h1>
-                        <p>Proprietario</p>
+                        <p>Administrador</p>
                     </div>
                 </div>
                 <!-- Sidebar Navidation Menus-->
@@ -53,7 +53,6 @@
                 </ul>
             </nav>
 
-
             <div class="container-fluid">
                 <section class="dashboard-counts no-padding-bottom">
                     <div class="container-fluid">
@@ -69,7 +68,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="number"><strong> {{cont}} </strong></div>
+                                    <div class="number"><strong> {{contU}} </strong></div>
                                 </div>
                             </div>
 
@@ -125,8 +124,6 @@
                     <div class="container-fluid">
                         <div class="row">
 
-
-
                             <div *ngIf="loading">
                                 <p> Aguarde... </p>
                             </div>
@@ -137,19 +134,22 @@
                                 <div class="statistics col-lg-3 col-12">
                                     <div class="statistic d-flex align-items-center bg-white has-shadow">
                                         <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
-                                        <div class="text"><strong>{{qtAnalisetexto}}</strong><br><small>Análises de
-                                                Texto</small>
+                                        <div class="text">
+                                            <strong>{{qtAnaliseLegenda}}</strong><br>
+                                            <small>Análises de Legenda</small>
                                         </div>
                                     </div>
                                     <div class="statistic d-flex align-items-center bg-white has-shadow">
                                         <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
-                                        <div class="text"><strong>{{qtAnalisecoment}}</strong><br><small>Análises de
-                                                Comentarios</small></div>
+                                        <div class="text">
+                                            <strong>{{qtAnaliseComent}}</strong><br>
+                                            <small>Análises de Comentarios</small></div>
                                     </div>
                                     <div class="statistic d-flex align-items-center bg-white has-shadow">
                                         <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
-                                        <div class="text"><strong>{{qtAnalisecoment}}</strong><br><small>Análises de
-                                                Fotos</small></div>
+                                        <div class="text">
+                                            <strong>{{qtAnaliseComent}}</strong><br>
+                                            <small>Análises de Fotos</small></div>
                                     </div>
 
                                 </div>
@@ -157,25 +157,46 @@
                                 <div class="chart col-lg-6 col-12">
                                     <div class="analise">
                                         <div style="display: block" class="bar">
-                                            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabens"
-                                                [options]="barChartOptions" [legend]="barChartLegend"
-                                                [chartType]="barChartType"></canvas>
+                                            <canvas baseChart 
+                                                [datasets]="barChartData" 
+                                                [labels]="barChartLabens"
+                                                [options]="barChartOptions" 
+                                                [legend]="barChartLegend"
+                                                [chartType]="barChartType">
+                                            </canvas>
                                         </div>
                                     </div>
                                 </div>
 
+                                
                                 <div class="chart col-lg-3 col-12">
                                     <!-- Bar Chart   -->
                                     <div class="bar-chart has-shadow bg-white">
-                                        <div class="title"><strong class="text-violet">95%</strong><br><small>Current
-                                                Server
-                                                Uptime</small>
+                                        <div class="title">
+                                            <strong class="text-violet">95%</strong><br>
+                                            <small>Current Server Uptime</small>
                                         </div>
                                         <canvas id="barChartHome"></canvas>
                                     </div>
                                     <!-- Numbers-->
-
+                                    
                                 </div>
+
+                                <div class="chart col-lg-6 col-12">
+                                    <div class="analise">
+                                        <div style="display: block">
+                                            <canvas baseChart
+                                                [datasets]="radarChartData"
+                                                [options]="radarChartOptions"
+                                                [labels]="radarChartLabels"
+                                                [chartType]="radarChartType">
+                                            </canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                               
                             </ng-container>
                         </div>
                     </div>
