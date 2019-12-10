@@ -4,6 +4,8 @@
     background: white;
 }
 
+
+
 body {
   overflow-x: hidden;
   background: #F6F6F6;
@@ -243,6 +245,7 @@ section.dashboard-counts div[class*='col-']:last-of-type .item {
   
   .chart .bar-chart {
     margin-bottom: 15px;
+   
   }
   
   .chart .bar-chart canvas {

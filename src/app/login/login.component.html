@@ -38,8 +38,8 @@
 
                                     <div class="form-group">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Usuário" value="Login" class="form-control"
-                                                [(ngModel)]="nickname" name=nickname id='login-username'>
+                                            <input matInput placeholder="Usuário" value="Login" class="form-control" [required]
+                                                [(ngModel)]="nickname" name=nickname id='login-username' >
                                         </mat-form-field>
 
 
@@ -48,11 +48,11 @@
                                     <div class="form-group">
                                         <mat-form-field class="example-full-width">
                                             <input matInput placeholder="Senha" value="password" id="login-password"
-                                                class="form-control" [(ngModel)]="senha" name=nickname type="password">
+                                                class="form-control alert alert-danger" required minlength="4" [(ngModel)]="senha" name=nickname type="password">
                                         </mat-form-field>
                                     </div>
 
-                                    <button [disabled]="formLogin.invalid" id="login"
+                                    <button [disabled]="formLogin.invalid" id="login" 
                                         class="btn btn-dark">Entrar</button>
 
                                 </form>
@@ -69,6 +69,7 @@
         </div>
 
     </div>
+    <h1>{{this.nome}}</h1>
 
 </body>
 

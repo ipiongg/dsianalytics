@@ -16,6 +16,8 @@ export class AnalisesService {
 
   constructor(private _http: HttpClient) {}
 
+  public nome = null;
+
   efetuarLogin(nickname, senha): Observable<Pessoa> {
     const url = ` ${this.apiURL}/login`
 
@@ -23,5 +25,7 @@ export class AnalisesService {
     console.log(newHeader);
     return this._http.get<Pessoa>(url, { headers: newHeader });
   };
+
+
 
 }

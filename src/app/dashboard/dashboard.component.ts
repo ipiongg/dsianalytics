@@ -4,6 +4,8 @@ import { map } from 'rxjs/operators';
 import { ChartDataSets, ChartType, RadialChartOptions, ChartOptions } from 'chart.js';
 import { Label, Color, BaseChartDirective } from 'ng2-charts';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
+import { AnalisesService } from 'src/app/analises.service';
+import { CanActivate } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +15,10 @@ import * as pluginAnnotations from 'chartjs-plugin-annotation';
 })
 
 export class DashboardComponent implements OnInit {
+
+  canActivate() {
+    return false;
+}
   //Gráfico de Pizza
   public barChartOptions
   public barChartLabens
@@ -51,10 +57,14 @@ export class DashboardComponent implements OnInit {
   azul = [];
   loading = false
 
+
+
   public contU = 0; contC = 0; contL = 0; contF = 0;
   public qtd_analises_total = 0;
 
-  constructor(public DataService$: DataService) { }
+  constructor(
+    public DataService$: DataService, private AnaliseService: AnalisesService
+  ) { }
 
   ngOnInit() {
     this.buscarDados();
@@ -80,7 +90,7 @@ export class DashboardComponent implements OnInit {
           this.contF = this.contF + 1
           //console.log(foto.analiseFoto)
         }
-      } 
+      }
 
       //Análise de Textos
       for (let legenda of this.ok.analises_geral) {
@@ -249,4 +259,3 @@ export class DashboardComponent implements OnInit {
     ];
   }
 }
-
