@@ -23,6 +23,7 @@
     "@angular/router": "~8.0.1",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
+    "chartjs-plugin-annotation": "^0.5.7",
     "express": "^4.17.1",
     "font": "0.0.4",
     "font-awesome": "^4.7.0",
