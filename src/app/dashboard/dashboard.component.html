@@ -157,10 +157,10 @@
                                 <div class="chart col-lg-6 col-12">
                                     <div class="analise">
                                         <div style="display: block" class="bar">
-                                            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabens"
-                                                [options]="barChartOptions" [legend]="barChartLegend"
-                                                [chartType]="barChartType">
+                                            <canvas baseChart [datasets]="radarChartData" [options]="radarChartOptions"
+                                                [labels]="radarChartLabels" [chartType]="radarChartType">
                                             </canvas>
+
                                         </div>
                                     </div>
                                 </div>
@@ -171,12 +171,17 @@
                                     <div class="analise">
 
                                         <div class="bar-chart has-shadow bg-white">
+                                           
                                             <div class="title">
-                                                <strong class="text-violet">95%</strong><br>
-                                                <small>Current Server Uptime</small>
+                                                <strong class="text-violet">ANALISES</strong><br>
+                                                <small>GRÁFICO DE LINHAS</small>
                                             </div>
-                                            <canvas>
+                                            
+                                            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabens"
+                                                [options]="barChartOptions" [legend]="barChartLegend"
+                                                [chartType]="barChartType">
                                             </canvas>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -184,16 +189,11 @@
                                 <div class="chart col-lg-3 col-12">
                                     <!-- Radar Chart   -->
                                     <div class="analise">
-                                      <div style="display: block">
-                                        <canvas baseChart
-                                          [datasets]="radarChartData"
-                                          [options]="radarChartOptions"
-                                          [labels]="radarChartLabels"
-                                          [chartType]="radarChartType">
-                                        </canvas>
-                                      </div>
+                                        <div style="display: block">
+
+                                        </div>
                                     </div>
-                                  </div>
+                                </div>
 
                             </ng-container>
                         </div>
@@ -205,4 +205,5 @@
         </div>
     </body>
 </div>
+
 </html>

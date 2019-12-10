@@ -3,7 +3,6 @@ import { DataService } from '../data.service';
 import { map } from 'rxjs/operators';
 import { ChartDataSets, ChartType, RadialChartOptions, ChartOptions } from 'chart.js';
 import { Label, Color, BaseChartDirective } from 'ng2-charts';
-import * as pluginAnnotations from 'chartjs-plugin-annotation';
 import { AnalisesService } from 'src/app/analises.service';
 import { CanActivate } from '@angular/router';
 
@@ -25,6 +24,7 @@ export class DashboardComponent implements OnInit {
   public barChartType
   public barChartLegend
   public barChartData
+  nombre = this.AnaliseService.nome
   
   public radarChartOptions: RadialChartOptions = {
     responsive: true,
@@ -250,12 +250,16 @@ export class DashboardComponent implements OnInit {
 
     };
 
-    this.barChartLabens = ['Analise Comentarios', 'Analise Texto'];
-    this.barChartType = 'pie';
+    this.barChartLabens = ['Analise'];
+    this.barChartType = 'line';
     this.barChartLegend = true;
+    
 
     this.barChartData = [
-      { data: [this.vermelho, this.azul], label: 'Analises' }
+      
+      { data: [this.vermelho, this.azul], label:[ 'Comentarios']},
+      { data: [this.azul,this.vermelho], label:[ 'Legenda']}
+     
     ];
   }
 }
