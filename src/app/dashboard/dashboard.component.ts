@@ -2,7 +2,9 @@ import { Component, OnInit, ViewEncapsulation, ɵConsole } from '@angular/core';
 import { DataService } from '../data.service';
 import { map } from 'rxjs/operators';
 import { ChartDataSets, ChartType, RadialChartOptions } from 'chart.js';
+import { AnalisesService } from 'src/app/analises.service';
 import { Label } from 'ng2-charts';
+import { CanActivate } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,21 +14,26 @@ import { Label } from 'ng2-charts';
 })
 
 export class DashboardComponent implements OnInit {
+
+  canActivate() {
+    return false;
+}
   //Gráfico de Pizza
   public barChartOptions
   public barChartLabens
   public barChartType
   public barChartLegend
   public barChartData
+  nombre = this.AnaliseService.nome
 
   //Gráfico Radar
-  
-  
+
+
   public felicidade = [0, 0, 0]; surpresa = [0, 0, 0]; medo = [0, 0, 0]; tristeza = [0, 0, 0]; raiva = [0, 0, 0]; nojo = [0, 0, 0]
   public felicidadeF; surpresaF; medoF; tristezaF; raivaF; nojoF
   public felicidadeL; surpresaL; medoL; tristezaL; raivaL; nojoL
   public felicidadeC; surpresaC; medoC; tristezaC; raivaC; nojoC
-  
+
   public radarChartOptions: RadialChartOptions = {
     responsive: true,
   };
@@ -49,10 +56,14 @@ export class DashboardComponent implements OnInit {
   azul = [];
   loading = false
 
+
+
   public contU = 0; contC = 0; contL = 0; contF = 0;
   public qtd_analises_total = 0;
 
-  constructor(public DataService$: DataService) { }
+  constructor(
+    public DataService$: DataService, private AnaliseService: AnalisesService
+  ) { }
 
   ngOnInit() {
     this.buscarDados();
@@ -78,7 +89,7 @@ export class DashboardComponent implements OnInit {
           this.contF = this.contF + 1
           //console.log(foto.analiseFoto)
         }
-      } 
+      }
 
       //Análise de Textos
       for (let legenda of this.ok.analises_geral) {
@@ -111,70 +122,72 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  grafico_radar(flc, sentimento){
+ 
+
+  grafico_radar(flc, sentimento) {
     if (flc == 'Foto') {
       if (sentimento == 'Felicidade') {
-        
-      }
-      else if (sentimento == 'Surpresa'){
 
       }
-      else if (sentimento == 'Medo'){
-  
-      }
-      else if (sentimento == 'Tristeza'){
-  
-      }
-      else if (sentimento == 'Raiva'){
-  
-      }
-      else if (sentimento == 'Nojo'){
-  
-      }
-
-    else if (flc == 'Legenda') {
-      if (sentimento == 'Felicidade') {
-        this.felicidade[1] += 1
-        this.felicidadeF = this.felicidade[1]*100/this.contL
-      }
-      else if (sentimento == 'Surpresa'){
+      else if (sentimento == 'Surpresa') {
 
       }
-      else if (sentimento == 'Medo'){
-  
+      else if (sentimento == 'Medo') {
+
       }
-      else if (sentimento == 'Tristeza'){
-  
+      else if (sentimento == 'Tristeza') {
+
       }
-      else if (sentimento == 'Raiva'){
-  
+      else if (sentimento == 'Raiva') {
+
       }
-      else if (sentimento == 'Nojo'){
-  
+      else if (sentimento == 'Nojo') {
+
+      }
+
+      else if (flc == 'Legenda') {
+        if (sentimento == 'Felicidade') {
+          this.felicidade[1] += 1
+          this.felicidadeF = this.felicidade[1] * 100 / this.contL
+        }
+        else if (sentimento == 'Surpresa') {
+
+        }
+        else if (sentimento == 'Medo') {
+
+        }
+        else if (sentimento == 'Tristeza') {
+
+        }
+        else if (sentimento == 'Raiva') {
+
+        }
+        else if (sentimento == 'Nojo') {
+
+        }
+      }
+
+      else if (flc == 'Comentário') {
+        if (sentimento == 'Felicidade') {
+
+        }
+        else if (sentimento == 'Surpresa') {
+
+        }
+        else if (sentimento == 'Medo') {
+
+        }
+        else if (sentimento == 'Tristeza') {
+
+        }
+        else if (sentimento == 'Raiva') {
+
+        }
+        else if (sentimento == 'Nojo') {
+
+        }
       }
     }
-
-    else if (flc == 'Comentário') {
-      if (sentimento == 'Felicidade') {
-
-      }
-      else if (sentimento == 'Surpresa'){
-
-      }
-      else if (sentimento == 'Medo'){
-  
-      }
-      else if (sentimento == 'Tristeza'){
-  
-      }
-      else if (sentimento == 'Raiva'){
-  
-      }
-      else if (sentimento == 'Nojo'){
-  
-      }
-    }
-  }
 
     /*
     if (texto.analiseLegenda.Resultado == 'Felicidade'){
@@ -245,16 +258,18 @@ export class DashboardComponent implements OnInit {
 
   //Gráfico Radar
   public chartClicked({ event, active }: {
-      event: MouseEvent, 
-      active: {}[] }): 
-        void {
-          console.log(event, active);
-        }
+    event: MouseEvent,
+    active: {}[]
+  }):
+    void {
+    console.log(event, active);
+  }
 
-  public chartHovered({ event, active }: { 
-    event: MouseEvent, 
-    active: {}[] }): 
-      void {
-        console.log(event, active);
-      }
+  public chartHovered({ event, active }: {
+    event: MouseEvent,
+    active: {}[]
+  }):
+    void {
+    console.log(event, active);
+  }
 }

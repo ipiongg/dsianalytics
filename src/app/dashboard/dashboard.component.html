@@ -32,7 +32,7 @@
                             class="img-fluid rounded-circle">
                     </div>
                     <div class="title">
-                        <h1 class="h4">Samuel Junior</h1>
+                        <h1 class="h4">{{nombre}}</h1>
                         <p>Administrador</p>
                     </div>
                 </div>
@@ -157,46 +157,36 @@
                                 <div class="chart col-lg-6 col-12">
                                     <div class="analise">
                                         <div style="display: block" class="bar">
-                                            <canvas baseChart 
-                                                [datasets]="barChartData" 
-                                                [labels]="barChartLabens"
-                                                [options]="barChartOptions" 
-                                                [legend]="barChartLegend"
+                                            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabens"
+                                                [options]="barChartOptions" [legend]="barChartLegend"
                                                 [chartType]="barChartType">
                                             </canvas>
                                         </div>
                                     </div>
                                 </div>
 
-                                
+
                                 <div class="chart col-lg-3 col-12">
                                     <!-- Bar Chart   -->
-                                    <div class="bar-chart has-shadow bg-white">
-                                        <div class="title">
-                                            <strong class="text-violet">95%</strong><br>
-                                            <small>Current Server Uptime</small>
-                                        </div>
-                                        <canvas id="barChartHome"></canvas>
-                                    </div>
-                                    <!-- Numbers-->
-                                    
-                                </div>
-
-                                <div class="chart col-lg-6 col-12">
                                     <div class="analise">
-                                        <div style="display: block">
-                                            <canvas baseChart
-                                                [datasets]="radarChartData"
-                                                [options]="radarChartOptions"
-                                                [labels]="radarChartLabels"
-                                                [chartType]="radarChartType">
+
+                                        <div class="bar-chart has-shadow bg-white">
+                                            <div class="title">
+                                                <strong class="text-violet">95%</strong><br>
+                                                <small>Current Server Uptime</small>
+                                            </div>
+                                            <canvas>
                                             </canvas>
                                         </div>
                                     </div>
+                                    <!-- Numbers-->
+
                                 </div>
 
-                                
-                               
+
+
+
+
                             </ng-container>
                         </div>
                     </div>
@@ -207,9 +197,4 @@
         </div>
     </body>
 </div>
-
-<div *ng>
-
-</div>
-
 </html>

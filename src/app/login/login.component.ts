@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   public id: any;
   nickname = null;
   senha = null;
+  nome = null;
 
   constructor(
     private AnaliseService: AnalisesService, private router: Router
@@ -23,18 +24,25 @@ export class LoginComponent implements OnInit {
   async login(formLogin) {
     let response = await this.AnaliseService.efetuarLogin(this.nickname, this.senha).subscribe(res => {
       this.id = res;
-      console.log(this.id.login)
+      /*console.log(this.id.login)*/
       if (this.id.login) {
         this.router.navigate(['dashboard'])
-        console.log(this.id);
+        /*console.log(this.id);*/
       }
       else {
         console.log("Error")
       }
+      
+
+      this.AnaliseService.nome = this.id.id_user.nome
 
     });
     formLogin.reset()
   };
+
+  
+
+  
 
 
 }
