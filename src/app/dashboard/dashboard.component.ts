@@ -110,62 +110,70 @@ export class DashboardComponent implements OnInit {
                 media.Media_Felicidade > media.Media_Medo && media.Media_Felicidade > media.Media_Raiva && 
                 media.Media_Felicidade > media.Media_Nojo){
 
-              //console.log(0)
+              /*//console.log(0)
               this.historico[0] += media.Media_Felicidade
               //this.comentario[0] = this.historico[0]*100/this.porcentagem(media.Media_Felicidade)
               this.porcentagem()
               this.calculo()
               //this.historico[0] = media.Media_Felicidade
-              //this.comentario[0] = (this.comentario[0]+media.Media_Felicidade)*100/teste
+              //this.comentario[0] = (this.comentario[0]+media.Media_Felicidade)*100/teste*/
+
+              this.comentario[0] += 1
             }
 
             else if(media.Media_Medo > media.Media_Felicidade && media.Media_Medo > media.Media_Tristeza && 
               media.Media_Medo > media.Media_Surpresa && media.Media_Medo > media.Media_Raiva && 
               media.Media_Medo > media.Media_Nojo){
             //console.log(3)
-            this.historico[1] += media.Media_Medo
+            /*this.historico[1] += media.Media_Medo
             //this.comentario[1] = this.historico[1]*100/
             this.porcentagem()
             this.calculo()
             //this.historico[3] += media.Media_Medo
-            //this.comentario[3] = media.Media_Medo*100/teste
+            //this.comentario[3] = media.Media_Medo*100/teste*/
+
+            this.comentario[1] += 1
             }
             else if(media.Media_Surpresa > media.Media_Felicidade && media.Media_Surpresa > media.Media_Tristeza && 
                     media.Media_Surpresa > media.Media_Medo && media.Media_Surpresa > media.Media_Raiva && 
                     media.Media_Surpresa > media.Media_Nojo){
-              //console.log(1)
+              /*//console.log(1)
               this.historico[2] += media.Media_Surpresa
               //this.comentario[2] += media.Media_Surpresa*100/
               this.porcentagem()
-              this.calculo()
+              this.calculo()*/
+              this.comentario[2] += 1
             }
             else if(media.Media_Tristeza > media.Media_Felicidade && media.Media_Tristeza > media.Media_Surpresa && 
                     media.Media_Tristeza > media.Media_Medo && media.Media_Tristeza > media.Media_Raiva && 
                     media.Media_Tristeza > media.Media_Nojo){
-              //console.log(2)
+              /*//console.log(2)
               this.historico[3] += media.Media_Tristeza
               //this.comentario[3] += media.Media_Tristeza*100/
               this.porcentagem()
-              this.calculo()
+              this.calculo()*/
+              this.comentario[3] += 1
             }
           
             else if(media.Media_Raiva > media.Media_Felicidade && media.Media_Raiva > media.Media_Tristeza && 
                     media.Media_Raiva > media.Media_Medo && media.Media_Raiva > media.Media_Surpresa && 
                     media.Media_Raiva > media.Media_Nojo){
-              //console.log(4)
+              /*//console.log(4)
               this.historico[4] += media.Media_Raiva
               //this.comentario[4] += media.Media_Raiva*100/
               this.porcentagem()
-              this.calculo()
+              this.calculo()*/
+              this.comentario[4] += 1
             }
             else if(media.Media_Nojo > media.Media_Felicidade && media.Media_Nojo > media.Media_Tristeza && 
                     media.Media_Nojo > media.Media_Medo && media.Media_Nojo > media.Media_Raiva && 
                     media.Media_Nojo > media.Media_Surpresa){
-              //console.log(5)
+              /*//console.log(5)
               this.historico[5] += media.Media_Nojo
               //this.comentario[5] += media.Media_Nojo*100/
               this.porcentagem()
-              this.calculo()
+              this.calculo()*/
+              this.comentario[5] += 1
             }
           }
         }
@@ -250,15 +258,14 @@ export class DashboardComponent implements OnInit {
 
     };
 
-    this.barChartLabens = ['Analise'];
-    this.barChartType = 'line';
+    this.barChartLabens = ['Comentário','Legenda'];
+    this.barChartType = 'pie';
     this.barChartLegend = true;
     
 
     this.barChartData = [
       
       { data: [this.vermelho, this.azul], label:[ 'Comentarios']},
-      { data: [this.azul,this.vermelho], label:[ 'Legenda']}
      
     ];
   }
