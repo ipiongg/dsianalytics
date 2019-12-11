@@ -12,20 +12,22 @@ import { ChartsModule } from 'ng2-charts';
 import { DataService } from './data.service';
 import {MatInputModule} from '@angular/material/input';
 import { TestesComponent } from './testes/testes.component';
-
-
+import { EsqueceuSenhaComponent } from './esqueceu-senha/esqueceu-senha.component';
 
 const rotas: Routes = [
+  {path: '', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent,},
-  {path: 'login', component: LoginComponent},
-  {path: 'testes', component: TestesComponent}
+  {path: 'redefinir-senha', component: EsqueceuSenhaComponent},
+  {path: 'testes', component: TestesComponent},
 ];
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    TestesComponent
+    EsqueceuSenhaComponent,
+    TestesComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,4 +42,5 @@ const rotas: Routes = [
   providers: [DataService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -38,26 +38,17 @@
 
                                     <div class="form-group">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Usuário" value="Login" class="form-control" [required]
-                                                [(ngModel)]="nickname" name=nickname id='login-username' >
-                                        </mat-form-field>
-
-
-                                    </div>
-
-                                    <div class="form-group">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Senha" value="password" id="login-password"
-                                                class="form-control alert alert-danger" required minlength="4" [(ngModel)]="senha" name=nickname type="password">
+                                            <input matInput placeholder="E-mail" value="Login" class="form-control"
+                                                [(ngModel)]="nickname" name=nickname id='login-username'>
                                         </mat-form-field>
                                     </div>
 
-                                    <button [disabled]="formLogin.invalid" id="login" 
-                                        class="btn btn-dark">Entrar</button>
+                                    <button [disabled]="formLogin.invalid" id="login"
+                                        class="btn btn-dark">Redefinir</button>
 
                                 </form>
                                 
-                                    <a class="forgot-pass" [routerLink]="['/redefinir-senha']">Esqueceu sua senha?</a> <br>
+                                    <a class="forgot-pass" [routerLink]="['']">Voltar</a> <br>
                                 <!--
                                     <small>Do not have an account? </small><a href="register.html" class="signup">Signup</a>
                                 -->
@@ -69,7 +60,6 @@
         </div>
 
     </div>
-    <h1>{{this.nome}}</h1>
 
 </body>
 

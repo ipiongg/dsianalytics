@@ -77,7 +77,7 @@
 .login-page .form-holder .form .form-group {
   position: relative;
   margin-bottom: 30px;
-}
+} 
 
 /*Login itens*/
 .login-page .form-holder .form .content {
@@ -110,4 +110,12 @@
   font-size: 0.9em;
 }
 
+input:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+} 
 
+button {
+  width: 400px;
+}
