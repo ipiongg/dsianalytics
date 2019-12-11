@@ -259,7 +259,7 @@ export class DashboardComponent implements OnInit {
     };
 
     this.barChartLabens = ['Comentário','Legenda'];
-    this.barChartType = 'pie';
+    this.barChartType = 'doughnut';
     this.barChartLegend = true;
     
 

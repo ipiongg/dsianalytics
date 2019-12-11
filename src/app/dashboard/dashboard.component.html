@@ -173,17 +173,25 @@
                                         <div class="bar-chart has-shadow bg-white">
                                            
                                             <div class="title">
-                                                <strong class="text-violet">ANALISES</strong><br>
-                                                <small>GRÁFICO DE LINHAS</small>
+                                                <strong class="text-violet">TOTAL DE ANALISES</strong><br>
+                                                
                                             </div>
                                             
                                             <canvas baseChart [datasets]="barChartData" [labels]="barChartLabens"
                                                 [options]="barChartOptions" [legend]="barChartLegend"
                                                 [chartType]="barChartType">
                                             </canvas>
+
+                                            <div>
+                                                <P class="title">Legenda</P>
+                                                <p class="title">Comentarios</p>
+                                                <p class="title">Fotos</p>
+
+                                            </div>
                                            
                                         </div>
                                     </div>
+                                    
                                 </div>
 
                                 <div class="chart col-lg-3 col-12">
