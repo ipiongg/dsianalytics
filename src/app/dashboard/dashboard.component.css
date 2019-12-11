@@ -4,6 +4,7 @@
     background: white;
 }
 
+<<<<<<< HEAD
 p{
   margin-top: 20px; 
   margin-bottom: 15px; 
@@ -11,6 +12,8 @@ p{
   font-size: 25px;
   text-transform: uppercase;
 }
+=======
+>>>>>>> 80d8778943b8d54854745840469ce926edd2cf40
 
 
 body {
