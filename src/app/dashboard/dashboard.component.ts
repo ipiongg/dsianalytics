@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewEncapsulation, ɵConsole, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataService } from '../data.service';
-import { map } from 'rxjs/operators';
-import { ChartDataSets, ChartType, RadialChartOptions, ChartOptions } from 'chart.js';
-import { Label, Color, BaseChartDirective } from 'ng2-charts';
+import { ChartDataSets, ChartType, RadialChartOptions } from 'chart.js';
+import { Label } from 'ng2-charts';
 import { AnalisesService } from 'src/app/analises.service';
 import { CanActivate } from '@angular/router';
 
@@ -51,8 +50,6 @@ export class DashboardComponent implements OnInit {
   analises = null;
   ok = null;
   quantidade = 50;
-  qtAnaliseLegenda = null;
-  qtAnaliseComent = null;
   vermelho = [];
   azul = [];
   loading = false
@@ -79,14 +76,12 @@ export class DashboardComponent implements OnInit {
         if (user.usuario != null) {
           this.contU = this.contU + 1
         }
-        //console.log(this.radarChartData)
       }
 
       //Análise de Fotos
       for (let foto of this.ok.analises_geral) {
         if (foto.analiseFoto != false) {
           this.contF = this.contF + 1
-          //console.log(foto.analiseFoto)
         }
       }
 
@@ -94,7 +89,6 @@ export class DashboardComponent implements OnInit {
       for (let legenda of this.ok.analises_geral) {
         if (legenda.analiseLegenda != false) {
           this.contL = this.contL + 1
-          //console.log(texto.analiseLegenda.Resultado)
         }
         this.grafico_radar('Legenda', legenda.analiseLegenda.Resultado)
       }
@@ -102,9 +96,13 @@ export class DashboardComponent implements OnInit {
       //Análise de Comentários
       for (let comentario of this.ok.analises_geral) {
         if (comentario.analiseComentarios != false) {
-          this.contC = this.contC + 1
+          //for (let frase of comentario.analiseComentarios.Lista_Frases) {}
+          console.log(comentario.analiseComentarios.Lista_Frases.length)
+          this.contC += comentario.analiseComentarios.Lista_Frases.length
           //console.log(comentario.analiseComentarios.Media)
           for (let media of comentario.analiseComentarios.Media) {
+            console.log(comentario.analiseComentarios.Media)
+
             if (media.Media_Felicidade > media.Media_Surpresa && media.Media_Felicidade > media.Media_Tristeza && 
                 media.Media_Felicidade > media.Media_Medo && media.Media_Felicidade > media.Media_Raiva && 
                 media.Media_Felicidade > media.Media_Nojo){
@@ -148,65 +146,34 @@ export class DashboardComponent implements OnInit {
       }
 
       this.vermelho.push(this.contC)
-      this.qtAnaliseComent = this.contC
-
-      this.qtAnaliseLegenda = this.contL
       this.azul.push(this.contL)
       this.dados()
-      //this.dados2()
       this.loading = false
 
       //Retorna a quatidade de análises realizadas
       this.qtd_analises_total = this.contL + this.contC + this.contF
     })
   }
-
-  calculo(){
-    let i = 0 
-    while (i < 6) {
-      this.comentario[i] = this.historico[i]*100/this.porcentagem()
-      i++
-    }
-  }
-
-  porcentagem(){
-    console.log(this.historico)
-    console.log(this.comentario)
-    if ((this.comentario[0]+this.comentario[1]+this.comentario[2]+this.comentario[3]+this.comentario[4]+this.comentario[5]) == 0) {
-      console.log(this.comentario[0]+this.comentario[1]+this.comentario[2]+this.comentario[3]+this.comentario[4]+this.comentario[5])
-      return 100
-    }
-    else {
-      console.log(this.comentario[0]+this.comentario[1]+this.comentario[2]+this.comentario[3]+this.comentario[4]+this.comentario[5])
-      return this.comentario[0]+this.comentario[1]+this.comentario[2]+this.comentario[3]+this.comentario[4]+this.comentario[5]
-    }
-  }
   
   grafico_radar(flc, sentimento) {
     if (flc == 'Legenda') {
       if (sentimento == 'Felicidade') {
         this.legenda[0] += 1
-        //console.log('felicidade')
       }
       else if (sentimento == 'Medo'){
         this.legenda[1] += 1
-        //console.log('medo')
       }
       else if (sentimento == 'Surpresa'){
         this.legenda[2] += 1
-        //console.log('surpresa')
       }
       else if (sentimento == 'Tristeza'){
         this.legenda[3] += 1
-        //console.log('tristeza')
       }
       else if (sentimento == 'Raiva'){
         this.legenda[4] += 1
-        //console.log('raiva')
       }
       else if (sentimento == 'Nojo'){
         this.legenda[5] += 1
-        //console.log('nojo')
       }
     }
   }
@@ -216,7 +183,6 @@ export class DashboardComponent implements OnInit {
     this.barChartOptions = {
       scaleShowVerticalLines: false,
       responsive: true
-
     };
 
     this.barChartLabens = ['Legenda','Comentario'];
@@ -224,10 +190,8 @@ export class DashboardComponent implements OnInit {
     this.barChartLegend = true;
 
     this.barChartData = [
-      
-      { data: [this.qtAnaliseLegenda], label:[ 'Legenda']},
-      {data: [this.qtAnaliseComent,], label:['Comentarios']},
-      
+      { data: [this.contL], label:[ 'Legenda']},
+      {data: [this.contC], label:['Comentarios']},
     ];
   }
 }

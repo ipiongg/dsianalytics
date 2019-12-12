@@ -20,7 +20,7 @@
                 <a class="navbar-brand" [routerLink]="['/dashboard']">
                     <img src=".././../assets/logo-group.svg">
                 </a>
-                <h5 id="logout" [routerLink]="['']">Logout <i class="fa fa-sign-out"></i></h5>
+                <h5 id="logout" [routerLink]="['']"> Logout <i class="fa fa-sign-out"></i></h5>
             </nav>
         </header>
         <div class="page-content d-flex align-items-stretch">
@@ -40,7 +40,7 @@
                 <span class="heading">Main</span>
                 <ul class="list-unstyled">
                     <li class="active"><a [routerLink]="['/dashboard']"> <i class="icon-home"></i>Dashboard</a></li>
-                    <li><a [routerLink]="['/login']"> <i class="icon-grid"></i>Analises de Sentimento</a></li>
+                    <li><a [routerLink]="['/login']"> <i class="icon-grid"></i>Análises de Sentimento</a></li>
 
                 </ul>
 
@@ -133,23 +133,23 @@
 
                                 <div class="statistics col-lg-3 col-12">
                                     <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                        <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
+                                        <div class="text">
+                                            <strong>{{contF}}</strong><br>
+                                            <small>Análises de Fotos</small></div>
+                                    </div>
+                                    <div class="statistic d-flex align-items-center bg-white has-shadow">
                                         <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
                                         <div class="text">
-                                            <strong>{{qtAnaliseLegenda}}</strong><br>
+                                            <strong>{{contL}}</strong><br>
                                             <small>Análises de Legenda</small>
                                         </div>
                                     </div>
                                     <div class="statistic d-flex align-items-center bg-white has-shadow">
                                         <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
                                         <div class="text">
-                                            <strong>{{qtAnaliseComent}}</strong><br>
-                                            <small>Análises de Comentarios</small></div>
-                                    </div>
-                                    <div class="statistic d-flex align-items-center bg-white has-shadow">
-                                        <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
-                                        <div class="text">
-                                            <strong>{{qtAnaliseComent}}</strong><br>
-                                            <small>Análises de Fotos</small></div>
+                                            <strong>{{contC}}</strong><br>
+                                            <small>Análises de Comentários</small></div>
                                     </div>
 
                                 </div>
@@ -173,7 +173,7 @@
                                         <div class="bar-chart has-shadow bg-white">
 
                                             <div class="title">
-                                                <strong class="text-violet">ANALISES</strong><br>
+                                                <strong class="text-violet">ANÁLISES</strong><br>
 
                                             </div>
                                             <div id="grafico">
