@@ -5,18 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Collapsible sidebar using Bootstrap 3</title>
-
+    <title>Analytcs</title>
 </head>
-
-<<<<<<< HEAD
 <body>
-
-
-
     <div class="wrapper">
-        <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
                 <div class="avatar"><img src=".././../assets/avatar-5.jpg" class="img-circle" width="80%">
@@ -24,73 +16,80 @@
                 <h3>Administrador</h3>
                 <h4>ADM</h4>
             </div>
-
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#">
+                    <a [routerLink]="['/dashboard']">
                         <i class="glyphicon glyphicon-home"></i>
                         Dashboard
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a>
                         <i class="glyphicon glyphicon-duplicate"></i>
                         Analises de Sentimento
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a>
                         <i class="glyphicon glyphicon-paperclip"></i>
                         FAQ
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a>
                         <i class="glyphicon glyphicon-send"></i>
                         Contato
                     </a>
                 </li>
+                <li>
+                    <a id="logout" [routerLink]="['']">
+                        <i class="glyphicon glyphicon-share"></i>
+                        Logout
+                    </a>
+                </li>
             </ul>
-
+            <ul class="list-unstyled">
+                <li>
+                    <img src=".././../assets/logo-group.svg" style="margin-top: 40px;
+                    width: 85%;">
+                </li>
+            </ul>
         </nav>
-
-        <!-- Page Content Holder -->
-        <div id="content">
-
+        <div id="content" style="margin-left: -12px">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                            <i class="glyphicon glyphicon-align-left"></i>
-                            <span>Menu</span>
+                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" style="background: rgb(121, 120, 131);">
+                            <i class="glyphicon glyphicon-align-justify"></i>
+                            Menu
                         </button>
                     </div>
                 </div>
-                    <div style="margin-bottom: 50px">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xs-6">Usuários Cadastrados <strong> {{contU}} </strong></div>
-                                <div class="col-xs-6">Total de Análises <strong>{{qtd_analises_total}}</strong></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-6">Análises de Legenda <strong>{{qtAnaliseLegenda}}</strong> </div>
-                                <div class="col-xs-6">Análises de Comentarios <strong> {{qtAnaliseComent}}</strong>
-                                </div>
-                            </div>
-
+                <div style="margin-bottom: 50px">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3" style="font-size: 20px;">Usuários Cadastrados  <strong style="color: #796AEE"> {{contU}}
+                                </strong></div>
+                            <div class="col-sm-3" style="font-size: 20px;">Total de Análises
+                                <strong style="color: #796AEE"> {{qtd_analises_total}}</strong></div>
                         </div>
+                        <!-- <div class="row">
+                                <div class="col-xs-6" style="font-size: 20px;">Análises de Legenda <strong>{{qtAnaliseLegenda}}</strong> </div>
+                                <div class="col-xs-6" style="font-size: 20px;">Análises de Comentarios <strong> {{qtAnaliseComent}}</strong>
+                                </div>
+                            </div>-->
                     </div>
-
+                </div>
             </nav>
             <div *ngIf="loading">
-                <p> Aguarde... </p>
+                <p style="color: #000"> Aguarde... </p>
             </div>
 
             <!-- Estatisticas -->
             <ng-container *ngIf="!loading">
-                <div class="container">
-                    <div class="row">
-                        <div class="chart col-lg-6 col-12">
+                <div class="container" >
+                    <div class="row" >
+                        <div class="chart col-lg-6 col-12" style="position:relative">
                             <h2>Gráficos geral</h2>
                             <div class="analise">
                                 <div style="display: block" class="bar">
@@ -103,7 +102,7 @@
                         </div>
                     </div>
 
-                    <div class="chart col-lg-6 col-12">
+                    <div class="chart col-lg-6 col-12" style="position:relative">
                         <h2>Gráficos em Linhas</h2>
                         <div class="bar-chart has-shadow bg-white">
 
@@ -118,205 +117,29 @@
             </ng-container>
         </div>
     </div>
-</body>
-=======
-<div *ngIf="this.loading == null">
-    <p>Aguarde um momento</p>
-</div>
+    <footer style=" background: #796AEE;">
+        <div class="container-fluid" style="text-align: center;" data-aos="fade-up">
+            <div class="row">
+                <div class="col-md-12" style="margin-top: 5px; text-align: inherit;">
+                    <p style="color:#fff;">
+                        © 2019 Copyright:
+                        Turma 0306 - Desenvlvimento de Sistemas de Informações
 
-<div *ngIf="this.loading != null">
-
-    <body>
-        <header class="logo">
-            <nav class="navbar navbar-light bg-dark">
-                <a class="navbar-brand" [routerLink]="['/dashboard']">
-                    <img src=".././../assets/logo-group.svg">
-                </a>
-                <h5 id="logout" [routerLink]="['']">Logout <i class="fa fa-sign-out"></i></h5>
-            </nav>
-        </header>
-        <div class="page-content d-flex align-items-stretch">
-            <!-- Side Navbar -->
-            <nav class="side-navbar">
-                <!-- Sidebar Header-->
-                <div class="sidebar-header d-flex align-items-center">
-                    <div class="avatar"><img src=".././../assets/avatar-5.jpg" alt="..."
-                            class="img-fluid rounded-circle">
-                    </div>
-                    <div class="title">
-                        <h1 class="h4">{{nombre}}</h1>
-                        <p>Administrador</p>
-                    </div>
+                    </p>
                 </div>
-                <!-- Sidebar Navidation Menus-->
-                <span class="heading">Main</span>
-                <ul class="list-unstyled">
-                    <li class="active"><a [routerLink]="['/dashboard']"> <i class="icon-home"></i>Dashboard</a></li>
-                    <li><a [routerLink]="['/login']"> <i class="icon-grid"></i>Analises de Sentimento</a></li>
-
-                </ul>
-
-                <span class="heading">Extras</span>
-                <ul class="list-unstyled">
-                    <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
-                    <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>
-                    <li> <a href="#"> <i class="icon-mail"></i>Demo </a></li>
-                    <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
-                </ul>
-            </nav>
-
-            <div class="container-fluid">
-                <section class="dashboard-counts no-padding-bottom">
-                    <div class="container-fluid">
-                        <div class="row bg-white has-shadow ">
-                            <!-- Item -->
-                            <div class="col-xl-3 col-sm-6">
-                                <div class="item d-flex align-items-center">
-                                    <div class="icon bg-violet"><i class="icon-user"></i></div>
-                                    <div class="title"><span>Usuários<br>Cadastrados</span>
-                                        <div class="progress">
-                                            <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25"
-                                                aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="number"><strong> {{contU}} </strong></div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-3 col-sm-6">
-                                <div class="item d-flex align-items-center">
-                                    <div class="icon bg-violet"><i class="icon-user"></i></div>
-                                    <div class="title"><span>Total<br>de Análises</span>
-                                        <div class="progress">
-                                            <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25"
-                                                aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="number"><strong>{{qtd_analises_total}}</strong></div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-3 col-sm-6">
-                                <div class="item d-flex align-items-center">
-                                    <div class="icon bg-violet"><i class="icon-user"></i></div>
-                                    <div class="title"><span>New<br>Clients</span>
-                                        <div class="progress">
-                                            <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25"
-                                                aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="number"><strong>400</strong></div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-3 col-sm-6">
-                                <div class="item d-flex align-items-center">
-                                    <div class="icon bg-violet"><i class="icon-user"></i></div>
-                                    <div class="title"><span>New<br>Clients</span>
-                                        <div class="progress">
-                                            <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25"
-                                                aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="number"><strong>25</strong></div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </section>
-
-                <br><br>
-                <section class="dashboard-header">
-                    <div class="container-fluid">
-                        <div class="row">
-
-                            <div *ngIf="loading">
-                                <p> Aguarde... </p>
-                            </div>
-
-                            <!-- Estatisticas -->
-                            <ng-container *ngIf="!loading">
-
-                                <div class="statistics col-lg-3 col-12">
-                                    <div class="statistic d-flex align-items-center bg-white has-shadow">
-                                        <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
-                                        <div class="text">
-                                            <strong>{{qtAnaliseLegenda}}</strong><br>
-                                            <small>Análises de Legenda</small>
-                                        </div>
-                                    </div>
-                                    <div class="statistic d-flex align-items-center bg-white has-shadow">
-                                        <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
-                                        <div class="text">
-                                            <strong>{{qtAnaliseComent}}</strong><br>
-                                            <small>Análises de Comentarios</small></div>
-                                    </div>
-                                    <div class="statistic d-flex align-items-center bg-white has-shadow">
-                                        <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
-                                        <div class="text">
-                                            <strong>{{qtAnaliseComent}}</strong><br>
-                                            <small>Análises de Fotos</small></div>
-                                    </div>
-
-                                </div>
-
-                                <div class="chart col-lg-6 col-12">
-                                    <div class="analise">
-                                        <div style="display: block" class="bar">
-                                            <canvas baseChart [datasets]="radarChartData" [options]="radarChartOptions"
-                                                [labels]="radarChartLabels" [chartType]="radarChartType">
-                                            </canvas>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="chart col-lg-3 col-12">
-                                    <!-- Bar Chart   -->
-                                    <div class="analise">
-
-                                        <div class="bar-chart has-shadow bg-white">
-                                           
-                                            <div class="title">
-                                                <strong class="text-violet">ANALISES</strong><br>
-                                                <small>GRÁFICO DE LINHAS</small>
-                                            </div>
-                                            
-                                            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabens"
-                                                [options]="barChartOptions" [legend]="barChartLegend"
-                                                [chartType]="barChartType">
-                                            </canvas>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="chart col-lg-3 col-12">
-                                    <!-- Radar Chart   -->
-                                    <div class="analise">
-                                        <div style="display: block">
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </ng-container>
-                        </div>
-                    </div>
-                </section>
-
             </div>
-
+            <div class="row ">
+                    <div class="col-sm-12" style="position: relative; margin: 2px 0;">
+                            <img src=".././../assets/Curso - Ciência da Computação.png" width="80px" style="margin-right: 10px;">
+                            <img src=".././../assets/engenharia.png" width="80px" style="margin-right: 10px;">
+                            <img src=".././../assets/Curso - Sistemas de Informação.png" width="80px" style="margin-right: 10px;">
+                    </div>
+            </div>
         </div>
-    </body>
-</div>
->>>>>>> 80d8778943b8d54854745840469ce926edd2cf40
+    </footer>
+
+
+
+</body>
 
 </html>
