@@ -105,7 +105,11 @@ export class DashboardComponent implements OnInit {
             let i = 0
             for (let val of Object.values(media)) {
               if (val > valor) {
+<<<<<<< HEAD
                /*valor = val*/
+=======
+                valor = val
+>>>>>>> 944b56427c24020ce20088e6f9cafeb80f4a0ea7
                 chave = Object.keys(media)[i]
               }
               i++

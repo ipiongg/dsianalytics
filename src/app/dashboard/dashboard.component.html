@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Analytcs</title>
 </head>
+<<<<<<< HEAD
 <body>
     <div class="wrapper">
         <nav id="sidebar">
@@ -63,6 +64,31 @@
                             <i class="glyphicon glyphicon-align-justify"></i>
                             Menu
                         </button>
+=======
+
+<div *ngIf="this.loading == null">
+    <p>Aguarde um momento</p>
+</div>
+
+<div *ngIf="this.loading != null">
+
+    <body>
+        <header class="logo">
+            <nav class="navbar navbar-light bg-dark">
+                <a class="navbar-brand" [routerLink]="['/dashboard']">
+                    <img src=".././../assets/logo-group.svg">
+                </a>
+                <h5 id="logout" [routerLink]="['']"> Logout <i class="fa fa-sign-out"></i></h5>
+            </nav>
+        </header>
+        <div class="page-content d-flex align-items-stretch">
+            <!-- Side Navbar -->
+            <nav class="side-navbar">
+                <!-- Sidebar Header-->
+                <div class="sidebar-header d-flex align-items-center">
+                    <div class="avatar"><img src=".././../assets/avatar-5.jpg" alt="..."
+                            class="img-fluid rounded-circle">
+>>>>>>> 944b56427c24020ce20088e6f9cafeb80f4a0ea7
                     </div>
                 </div>
                 <div style="margin-bottom: 50px">
@@ -80,6 +106,24 @@
                             </div>-->
                     </div>
                 </div>
+<<<<<<< HEAD
+=======
+                <!-- Sidebar Navidation Menus-->
+                <span class="heading">Main</span>
+                <ul class="list-unstyled">
+                    <li class="active"><a [routerLink]="['/dashboard']"> <i class="icon-home"></i>Dashboard</a></li>
+                    <li><a [routerLink]="['/login']"> <i class="icon-grid"></i>Análises de Sentimento</a></li>
+
+                </ul>
+
+                <span class="heading">Extras</span>
+                <ul class="list-unstyled">
+                    <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
+                    <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>
+                    <li> <a href="#"> <i class="icon-mail"></i>Demo </a></li>
+                    <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
+                </ul>
+>>>>>>> 944b56427c24020ce20088e6f9cafeb80f4a0ea7
             </nav>
             <div *ngIf="loading">
                 <p style="color: #000"> Aguarde... </p>
@@ -101,16 +145,91 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
 
                     <div class="chart col-lg-6 col-12" style="position:relative">
                         <h2>Gráficos em Linhas</h2>
                         <div class="bar-chart has-shadow bg-white">
 
+=======
+                </section>
+
+                <br><br>
+                <section class="dashboard-header">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div *ngIf="loading">
+                                <p> Aguarde... </p>
+                            </div>
+
+                            <!-- Estatisticas -->
+                            <ng-container *ngIf="!loading">
+
+                                <div class="statistics col-lg-3 col-12">
+                                    <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                        <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
+                                        <div class="text">
+                                            <strong>{{contF}}</strong><br>
+                                            <small>Análises de Fotos</small></div>
+                                    </div>
+                                    <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                        <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
+                                        <div class="text">
+                                            <strong>{{contL}}</strong><br>
+                                            <small>Análises de Legenda</small>
+                                        </div>
+                                    </div>
+                                    <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                        <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
+                                        <div class="text">
+                                            <strong>{{contC}}</strong><br>
+                                            <small>Análises de Comentários</small></div>
+                                    </div>
+
+                                </div>
+
+                                <div class="chart col-lg-6 col-12">
+                                    <div class="analise">
+                                        <div style="display: block" class="bar">
+                                            <canvas baseChart [datasets]="radarChartData" [options]="radarChartOptions"
+                                                [labels]="radarChartLabels" [chartType]="radarChartType">
+                                            </canvas>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="chart col-lg-3 col-12">
+                                    <!-- Bar Chart   -->
+                                    <div class="analise-bar">
+
+                                        <div class="bar-chart has-shadow bg-white">
+
+                                            <div class="title">
+                                                <strong class="text-violet">ANÁLISES</strong><br>
+
+                                            </div>
+                                            <div id="grafico">
+
+                                                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabens"
+                                                    [options]="barChartOptions" [legend]="barChartLegend"
+                                                    [chartType]="barChartType">
+                                                </canvas>
+                                            </div>
+>>>>>>> 944b56427c24020ce20088e6f9cafeb80f4a0ea7
 
                             <canvas baseChart [datasets]="barChartData" [labels]="barChartLabens"
                                 [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
                             </canvas>
 
+<<<<<<< HEAD
+=======
+                                
+
+                            </ng-container>
+>>>>>>> 944b56427c24020ce20088e6f9cafeb80f4a0ea7
                         </div>
                     </div>
                 </div>

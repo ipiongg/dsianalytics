@@ -28,11 +28,12 @@ nav.side-navbar {
   background: #fff;
   min-width: 250px;
   max-width: 250px;
+ 
   color: #686a76;
   -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   z-index: 9;
-  height: 100%;
+  
   
 
 }
@@ -265,6 +266,7 @@ section.dashboard-counts div[class*='col-']:last-of-type .item {
       cursor: pointer;
 
   }
+<<<<<<< HEAD
 
   /*
     DEMO STYLE
@@ -519,3 +521,12 @@ a.article, a.article:hover {
         display: none;
     }
 }
+=======
+  #test1{
+    background: yellow;
+    width: 2px;
+    height: 10px;
+    margin-top: 2%;
+  }
+  
+>>>>>>> 944b56427c24020ce20088e6f9cafeb80f4a0ea7
