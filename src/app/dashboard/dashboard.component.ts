@@ -258,14 +258,17 @@ export class DashboardComponent implements OnInit {
 
     };
 
-    this.barChartLabens = ['Comentário','Legenda'];
-    this.barChartType = 'doughnut';
+    this.barChartLabens = ['Legenda','Comentario'];
+    this.barChartType = 'horizontalBar';
     this.barChartLegend = true;
     
 
     this.barChartData = [
       
-      { data: [this.vermelho, this.azul], label:[ 'Comentarios']},
+      { data: [this.qtAnaliseLegenda], label:[ 'Legenda']},
+      {data: [this.qtAnaliseComent,], label:['Comentarios']},
+      
+   
      
     ];
   }
