@@ -3,7 +3,6 @@ import { DataService } from '../data.service';
 import { ChartDataSets, ChartType, RadialChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { AnalisesService } from 'src/app/analises.service';
-import { CanActivate } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -36,8 +35,9 @@ export class DashboardComponent implements OnInit {
 
   public felicidadeL = 0; medoL = 0; surpresaL = 0; tristezaL = 0;  raivaL = 0; nojoL = 0
   public felicidadeC = 0; medoC = 0; surpresaC = 0; tristezaC = 0;  raivaC = 0; nojoC = 0
+  public label = ['Felicidade', 'Medo', 'Surpresa', 'Tristeza', 'Raiva', 'Nojo'] 
 
-  public radarChartLabels: Label[] = ['Felicidade', 'Medo', 'Surpresa', 'Tristeza', 'Raiva', 'Nojo'];
+  public radarChartLabels: Label[] = this.label;
   public radarChartData: ChartDataSets[] = [
     //{ data: , label: 'Foto' },
     { data: this.legenda, label: 'Legenda' },
@@ -96,55 +96,33 @@ export class DashboardComponent implements OnInit {
       //Análise de Comentários
       for (let comentario of this.ok.analises_geral) {
         if (comentario.analiseComentarios != false) {
-          //for (let frase of comentario.analiseComentarios.Lista_Frases) {}
-          console.log(comentario.analiseComentarios.Lista_Frases.length)
           this.contC += comentario.analiseComentarios.Lista_Frases.length
-          //console.log(comentario.analiseComentarios.Media)
+
+          //Cálculo para o Gráfico de Radar
           for (let media of comentario.analiseComentarios.Media) {
-            console.log(comentario.analiseComentarios.Media)
-
-            if (media.Media_Felicidade > media.Media_Surpresa && media.Media_Felicidade > media.Media_Tristeza && 
-                media.Media_Felicidade > media.Media_Medo && media.Media_Felicidade > media.Media_Raiva && 
-                media.Media_Felicidade > media.Media_Nojo){
-              console.log(0)
-              this.comentario[0] += 1
+            let valor = 0
+            let chave
+            let i = 0
+            for (let val of Object.values(media)) {
+              if (val > valor) {
+                valor = val
+                chave = Object.keys(media)[i]
+              }
+              i++
             }
 
-            else if(media.Media_Medo > media.Media_Felicidade && media.Media_Medo > media.Media_Tristeza && 
-                    media.Media_Medo > media.Media_Surpresa && media.Media_Medo > media.Media_Raiva && 
-                    media.Media_Medo > media.Media_Nojo){
-            console.log(1)
-            this.comentario[1] += 1
-            }
-            else if(media.Media_Surpresa > media.Media_Felicidade && media.Media_Surpresa > media.Media_Tristeza && 
-                    media.Media_Surpresa > media.Media_Medo && media.Media_Surpresa > media.Media_Raiva && 
-                    media.Media_Surpresa > media.Media_Nojo){
-              console.log(2)
-              this.comentario[2] += 1
-            }
-            else if(media.Media_Tristeza > media.Media_Felicidade && media.Media_Tristeza > media.Media_Surpresa && 
-                    media.Media_Tristeza > media.Media_Medo && media.Media_Tristeza > media.Media_Raiva && 
-                    media.Media_Tristeza > media.Media_Nojo){
-              console.log(3)
-              this.comentario[3] += 1
-            }
-          
-            else if(media.Media_Raiva > media.Media_Felicidade && media.Media_Raiva > media.Media_Tristeza && 
-                    media.Media_Raiva > media.Media_Medo && media.Media_Raiva > media.Media_Surpresa && 
-                    media.Media_Raiva > media.Media_Nojo){
-              console.log(4)
-              this.comentario[4] += 1
-            }
-            else if(media.Media_Nojo > media.Media_Felicidade && media.Media_Nojo > media.Media_Tristeza && 
-                    media.Media_Nojo > media.Media_Medo && media.Media_Nojo > media.Media_Raiva && 
-                    media.Media_Nojo > media.Media_Surpresa){
-              console.log(5)
-              this.comentario[5] += 1
+            i = 0
+            for (let label of this.label) {
+              if (chave == 'Media_'+label) {
+                this.comentario[i] += 1
+              }
+              i++
             }
           }
         }
       }
 
+      //Alguns sets
       this.vermelho.push(this.contC)
       this.azul.push(this.contL)
       this.dados()
